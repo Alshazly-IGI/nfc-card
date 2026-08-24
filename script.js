@@ -1,12 +1,21 @@
 console.log("Welcome");
-const qrModal = document.getElementById("qrModal");
 
-qrModal.addEventListener("click", function(event) {
+document.addEventListener("DOMContentLoaded", function () {
 
-    if (event.target === qrModal) {
+    const qrModal = document.getElementById("qrModal");
 
-        closeQR();
-
+    if (!qrModal) {
+        console.error("QR Modal not found");
+        return;
     }
+
+    qrModal.addEventListener("click", function (event) {
+
+        // Close only when clicking the dark background
+        if (event.target === qrModal) {
+            closeQR();
+        }
+
+    });
 
 });
