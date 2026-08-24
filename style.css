@@ -1,39 +1,41 @@
-/* =========================================================
-   GLOBAL
-========================================================= */
+/* =================================
+   RESET
+================================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+
+/* =================================
+   BODY
+================================= */
 
 body {
 
     min-height: 100vh;
 
-    /* DARK MODE */
-    --bg: #000000;
-    --card: #111111;
-    --primary: #ff8c00;
-    --primary-light: #ffa733;
+    background:
+        radial-gradient(
+            circle at top left,
+            #123b63,
+            transparent 40%
+        ),
 
-    --text: #ffffff;
-    --muted: #cfcfcf;
+        radial-gradient(
+            circle at bottom right,
+            #06445c,
+            transparent 40%
+        ),
 
-    --box: #1b1b1b;
-    --box-hover: #242424;
-
-    --border: rgba(255, 140, 0, 0.25);
-
-    background: var(--bg);
-
-    color: var(--text);
+        #061426;
 
     display: flex;
 
@@ -43,53 +45,30 @@ body {
 
     padding: 30px 15px;
 
-    transition:
-        background 0.4s ease,
-        color 0.4s ease;
+    color: white;
 }
 
 
-/* =========================================================
-   LIGHT MODE
-========================================================= */
-
-body.light-mode {
-
-    --bg: #eef1f5;
-
-    --card: #ffffff;
-
-    --primary: #0b1f3a;
-
-    --primary-light: #163b67;
-
-    --text: #0b1f3a;
-
-    --muted: #526174;
-
-    --box: #f1f3f6;
-
-    --box-hover: #e4e8ed;
-
-    --border: rgba(11, 31, 58, 0.16);
-}
-
-
-/* =========================================================
+/* =================================
    CARD
-========================================================= */
+================================= */
 
 .card {
-
-    position: relative;
 
     width: 100%;
 
     max-width: 460px;
 
-    background: var(--card);
+    background:
+        rgba(16, 36, 68, 0.94);
 
-    border: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    border:
+        1px solid
+        rgba(0, 217, 255, 0.18);
 
     border-radius: 28px;
 
@@ -98,88 +77,39 @@ body.light-mode {
     text-align: center;
 
     box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.45),
-        0 0 30px var(--border);
 
-    transition:
-        background 0.4s ease,
-        border 0.4s ease,
-        box-shadow 0.4s ease;
+        0 20px 60px
+        rgba(0, 0, 0, 0.45),
+
+        0 0 30px
+        rgba(0, 183, 255, 0.12);
 }
 
 
-/* =========================================================
-   THEME BUTTON
-========================================================= */
-
-.theme-toggle {
-
-    position: absolute;
-
-    top: 18px;
-
-    right: 18px;
-
-    width: 42px;
-
-    height: 42px;
-
-    border-radius: 50%;
-
-    border: 1px solid var(--border);
-
-    background: var(--box);
-
-    color: var(--primary);
-
-    font-size: 17px;
-
-    cursor: pointer;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    transition: all 0.3s ease;
-
-    z-index: 10;
-}
-
-.theme-toggle:hover {
-
-    transform:
-        rotate(20deg)
-        scale(1.08);
-
-    background: var(--box-hover);
-}
-
-
-/* =========================================================
+/* =================================
    PROFILE
-========================================================= */
+================================= */
 
 .profile {
 
-    padding-top: 10px;
+    padding-bottom: 10px;
 
-    padding-bottom: 8px;
 }
 
 
-/* PROFILE PHOTO */
+/* =================================
+   PROFILE PHOTO
+================================= */
 
 .photo {
 
-    width: 170px;
+    width: 200px;
 
-    height: 170px;
+    height: 200px;
 
-    object-fit: contain;
+    object-fit: cover;
 
-    object-position: center;
+    object-position: center center;
 
     border-radius: 50%;
 
@@ -187,48 +117,52 @@ body.light-mode {
 
     margin: 0 auto 22px;
 
-    background: var(--box);
+    border:
+        4px solid #00d9ff;
 
-    border: 4px solid var(--primary);
+    outline:
+        5px solid
+        rgba(0, 217, 255, 0.10);
 
     box-shadow:
 
-        0 0 0 6px var(--card),
+        0 0 0 8px
+        rgba(0, 217, 255, 0.05),
 
-        0 0 0 9px var(--border),
+        0 0 25px
+        rgba(0, 217, 255, 0.35),
 
-        0 0 30px var(--border),
-
-        0 15px 35px rgba(0, 0, 0, 0.45);
+        0 15px 35px
+        rgba(0, 0, 0, 0.45);
 
     transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
+        all 0.4s ease;
 }
+
 
 .photo:hover {
 
-    transform: scale(1.03);
+    transform:
+        scale(1.04);
 
     box-shadow:
 
-        0 0 0 6px var(--card),
+        0 0 0 8px
+        rgba(0, 217, 255, 0.08),
 
-        0 0 0 10px var(--primary),
+        0 0 35px
+        rgba(0, 217, 255, 0.55),
 
-        0 0 40px var(--border),
-
-        0 18px 40px rgba(0, 0, 0, 0.5);
+        0 18px 40px
+        rgba(0, 0, 0, 0.5);
 }
 
 
-/* =========================================================
+/* =================================
    HEADINGS
-========================================================= */
+================================= */
 
 h1 {
-
-    color: var(--text);
 
     font-size: 34px;
 
@@ -242,7 +176,7 @@ h1 {
 
 h3 {
 
-    color: var(--primary);
+    color: #00d9ff;
 
     font-size: 18px;
 
@@ -254,7 +188,7 @@ h3 {
 
 .headline {
 
-    color: var(--muted);
+    color: #b8c9dc;
 
     font-size: 14px;
 
@@ -262,9 +196,9 @@ h3 {
 }
 
 
-/* =========================================================
-   BUTTONS
-========================================================= */
+/* =================================
+   MAIN BUTTONS
+================================= */
 
 .buttons {
 
@@ -302,46 +236,44 @@ h3 {
 
     gap: 8px;
 
-    transition: all 0.3s ease;
+    transition:
+        all 0.3s ease;
 }
 
-
-/* PRIMARY BUTTON */
 
 .primary-btn {
 
-    background: var(--primary);
+    background: #00d9ff;
 
-    color: #ffffff;
-
-    border: 1px solid var(--primary);
+    color: #03121f;
 }
 
 
-/* SECONDARY BUTTON */
-
 .secondary-btn {
 
-    background: var(--box);
+    background: #173b63;
 
-    color: var(--text);
+    color: white;
 
-    border: 1px solid var(--border);
+    border:
+        1px solid #2b587f;
 }
 
 
 .btn:hover {
 
-    transform: translateY(-3px);
+    transform:
+        translateY(-3px);
 
     box-shadow:
-        0 8px 20px var(--border);
+        0 8px 20px
+        rgba(0, 217, 255, 0.22);
 }
 
 
-/* =========================================================
+/* =================================
    SOCIAL MEDIA
-========================================================= */
+================================= */
 
 .social {
 
@@ -349,15 +281,16 @@ h3 {
 
     justify-content: center;
 
-    gap: 12px;
+    gap: 18px;
 
-    margin: 25px 0 35px;
+    margin:
+        25px 0 35px;
 
     padding-bottom: 25px;
 
-    border-bottom: 1px solid var(--border);
-
-    flex-wrap: wrap;
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.08);
 }
 
 
@@ -375,36 +308,35 @@ h3 {
 
     border-radius: 50%;
 
-    background: var(--box);
+    background: #173863;
 
-    border: 1px solid var(--border);
+    color: white;
 
-    color: var(--text);
-
-    font-size: 19px;
+    font-size: 20px;
 
     text-decoration: none;
 
-    transition: all 0.3s ease;
+    transition:
+        all 0.3s ease;
 }
 
 
 .social a:hover {
 
-    color: var(--primary);
+    color: #00d9ff;
 
-    border-color: var(--primary);
-
-    transform: translateY(-4px);
+    transform:
+        translateY(-4px);
 
     box-shadow:
-        0 7px 18px var(--border);
+        0 6px 15px
+        rgba(0, 217, 255, 0.2);
 }
 
 
-/* =========================================================
+/* =================================
    SECTIONS
-========================================================= */
+================================= */
 
 section {
 
@@ -422,7 +354,7 @@ h2 {
 
     gap: 9px;
 
-    color: var(--primary);
+    color: #00d9ff;
 
     font-size: 21px;
 
@@ -436,25 +368,141 @@ h2 i {
 }
 
 
-/* =========================================================
-   ABOUT
-========================================================= */
+/* =================================
+   ABOUT ME
+================================= */
 
-.about-text {
+.about-section {
 
-    color: var(--muted);
-
-    font-size: 15px;
-
-    line-height: 1.8;
-
-    text-align: center;
+    margin-top: 32px;
 }
 
 
-/* =========================================================
+.about-content {
+
+    text-align: left;
+}
+
+
+.about-content > p {
+
+    color: #c3d1df;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    margin-bottom: 14px;
+}
+
+
+.about-content strong {
+
+    color: #ffffff;
+
+    font-weight: 600;
+}
+
+
+/* =================================
+   ABOUT SUBTITLE
+================================= */
+
+.about-subtitle {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+
+    margin-bottom: 14px;
+
+    color: #00d9ff;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+.about-subtitle i {
+
+    font-size: 16px;
+}
+
+
+/* =================================
+   INTERESTS
+================================= */
+
+.interest-list {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+}
+
+
+.interest-list span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 11px;
+
+    background:
+        rgba(23, 56, 99, 0.75);
+
+    border:
+        1px solid
+        rgba(0, 217, 255, 0.12);
+
+    border-radius: 20px;
+
+    color: #cdddea;
+
+    font-size: 12px;
+
+    transition:
+        all 0.3s ease;
+}
+
+
+.interest-list span i {
+
+    color: #00d9ff;
+
+    font-size: 12px;
+}
+
+
+.interest-list span:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(0, 217, 255, 0.45);
+
+    color: #00d9ff;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 217, 255, 0.12);
+}
+
+
+/* =================================
    SKILLS
-========================================================= */
+================================= */
 
 .skills {
 
@@ -479,13 +527,20 @@ h2 i {
 
     padding: 13px 12px;
 
-    background: var(--box);
+    background:
+        linear-gradient(
+            135deg,
+            #173863,
+            #122d50
+        );
 
-    border: 1px solid var(--border);
+    border:
+        1px solid
+        rgba(0, 217, 255, 0.12);
 
     border-radius: 12px;
 
-    color: var(--text);
+    color: #dceaf5;
 
     font-size: 13px;
 
@@ -493,13 +548,14 @@ h2 i {
 
     text-align: left;
 
-    transition: all 0.3s ease;
+    transition:
+        all 0.3s ease;
 }
 
 
 .skills span i {
 
-    color: var(--primary);
+    color: #00d9ff;
 
     font-size: 16px;
 
@@ -509,24 +565,39 @@ h2 i {
 }
 
 
-.skills span:hover {
+/* Excel Logo */
 
-    transform: translateY(-3px);
+.skill-logo {
 
-    background: var(--box-hover);
+    width: 20px;
 
-    border-color: var(--primary);
+    height: 20px;
 
-    box-shadow:
-        0 8px 20px var(--border);
+    object-fit: contain;
 
-    color: var(--primary);
+    flex-shrink: 0;
 }
 
 
-/* =========================================================
+.skills span:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(0, 217, 255, 0.5);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 217, 255, 0.12);
+
+    color: #00d9ff;
+}
+
+
+/* =================================
    PROJECTS
-========================================================= */
+================================= */
 
 .project {
 
@@ -538,9 +609,16 @@ h2 i {
 
     text-align: left;
 
-    background: var(--box);
+    background:
+        linear-gradient(
+            135deg,
+            #173863,
+            #122d50
+        );
 
-    border: 1px solid var(--border);
+    border:
+        1px solid
+        rgba(0, 217, 255, 0.08);
 
     padding: 15px;
 
@@ -548,15 +626,16 @@ h2 i {
 
     border-radius: 13px;
 
-    color: var(--text);
+    color: #dceaf5;
 
-    transition: all 0.3s ease;
+    transition:
+        0.3s;
 }
 
 
 .project i {
 
-    color: var(--primary);
+    color: #00d9ff;
 
     font-size: 18px;
 
@@ -568,20 +647,17 @@ h2 i {
 
 .project:hover {
 
-    transform: translateX(5px);
+    transform:
+        translateX(4px);
 
-    background: var(--box-hover);
-
-    border-color: var(--primary);
-
-    box-shadow:
-        0 8px 20px var(--border);
+    border-color:
+        rgba(0, 217, 255, 0.35);
 }
 
 
-/* =========================================================
-   BOTTOM PROFILE IMAGE
-========================================================= */
+/* =================================
+   FOOTER IMAGE
+================================= */
 
 .footer-photo {
 
@@ -591,77 +667,49 @@ h2 i {
 
     align-items: center;
 
-    margin: 35px auto 20px;
+    margin:
+        30px auto 20px;
 }
 
 
 .footer-photo img {
 
-    width: 70px;
+    width: 300px;
 
-    height: 70px;
+    height: 200px;
 
-    object-fit: contain;
+    max-width: 100%;
 
-    border-radius: 12px;
-
-    opacity: 0.9;
-
-    border: 2px solid var(--border);
-
-    box-shadow:
-        0 0 15px var(--border);
-
-    transition: 0.3s ease;
-}
-
-
-.footer-photo img:hover {
-
-    transform: scale(1.08);
-
-    border-color: var(--primary);
-}
-
-
-/* =========================================================
-   QR SECTION
-========================================================= */
-
-.qr-section {
-
-    margin: 30px auto 20px;
-
-    text-align: center;
-}
-
-
-.qr-section p {
-
-    color: var(--muted);
-
-    font-size: 12px;
-
-    margin-bottom: 12px;
-}
-
-
-/* SMALL QR */
-
-.qr-code {
-
-    width: 140px;
-
-    height: 140px;
-
-    padding: 8px;
-
-    background: #ffffff;
+    object-fit: cover;
 
     border-radius: 15px;
 
     display: block;
 
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.35);
+}
+
+
+.qr-section {
+    margin: 30px auto 20px;
+    text-align: center;
+}
+
+.qr-section p {
+    color: #8fa9c0;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.qr-code {
+    width: 140px;
+    height: 140px;
+    padding: 8px;
+    background: white;
+    border-radius: 15px;
+    display: block;
     margin: auto;
 
     cursor: pointer;
@@ -669,24 +717,17 @@ h2 i {
     box-shadow:
         0 8px 25px rgba(0, 0, 0, 0.35);
 
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
-
 
 .qr-code:hover {
-
     transform: scale(1.05);
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
 
-/* =========================================================
+/* =========================
    QR MODAL
-========================================================= */
+========================= */
 
 .qr-modal {
 
@@ -697,27 +738,22 @@ h2 i {
     inset: 0;
 
     width: 100%;
-
     height: 100%;
 
-    background:
-        rgba(0, 0, 0, 0.88);
+    background: rgba(0, 0, 0, 0.85);
 
-    backdrop-filter: blur(7px);
+    backdrop-filter: blur(6px);
 
     justify-content: center;
-
     align-items: center;
 
     z-index: 9999;
 
     cursor: pointer;
-
-    padding: 20px;
 }
 
 
-/* LARGE QR */
+/* Large QR */
 
 .qr-large {
 
@@ -726,50 +762,161 @@ h2 i {
     height: min(80vw, 400px);
 
     max-width: 400px;
-
     max-height: 400px;
 
     padding: 15px;
 
-    background: #ffffff;
+    background: white;
 
     border-radius: 20px;
 
-    display: block;
-
-    cursor: default;
-
     box-shadow:
-        0 0 40px rgba(255, 140, 0, 0.45);
+        0 0 40px rgba(0, 217, 255, 0.35);
 
-    animation:
-        qrZoom 0.25s ease;
+    animation: qrZoom 0.25s ease;
+
 }
 
 
-/* QR ANIMATION */
+/* Animation */
 
 @keyframes qrZoom {
 
     from {
-
         transform: scale(0.6);
-
         opacity: 0;
     }
 
     to {
-
         transform: scale(1);
-
         opacity: 1;
     }
+
+}
+
+/* =================================
+   SHARE BUTTONS
+================================= */
+
+.share-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin:
+        25px 0;
+
+    flex-wrap: wrap;
 }
 
 
-/* =========================================================
+/* Share */
+
+.share-btn {
+
+    flex: 1;
+
+    min-width: 160px;
+
+    padding: 13px 16px;
+
+    border-radius: 12px;
+
+    background: #00b7ff;
+
+    color: white !important;
+
+    border:
+        1px solid
+        rgba(0,217,255,0.3);
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    transition:
+        all 0.3s ease;
+}
+
+
+/* NFC */
+
+.nfc-btn {
+
+    flex: 1;
+
+    min-width: 160px;
+
+    padding: 13px 16px;
+
+    border-radius: 12px;
+
+    background: #173863;
+
+    color: white !important;
+
+    border:
+        1px solid
+        rgba(0,217,255,0.3);
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    transition:
+        all 0.3s ease;
+}
+
+
+.share-btn i,
+.nfc-btn i {
+
+    color: white;
+}
+
+
+.share-btn:hover,
+.nfc-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,217,255,0.22);
+}
+
+
+/* =================================
    FOOTER
-========================================================= */
+================================= */
 
 footer {
 
@@ -777,9 +924,11 @@ footer {
 
     padding-top: 18px;
 
-    border-top: 1px solid var(--border);
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
 
-    color: var(--muted);
+    color: #7f95aa;
 
     font-size: 12px;
 
@@ -787,9 +936,26 @@ footer {
 }
 
 
-/* =========================================================
+footer i {
+
+    color: #00d9ff;
+
+    margin-right: 5px;
+}
+
+
+.footer-separator {
+
+    margin:
+        0 6px;
+
+    color: #526b82;
+}
+
+
+/* =================================
    MOBILE
-========================================================= */
+================================= */
 
 @media (max-width: 480px) {
 
@@ -805,17 +971,16 @@ footer {
         padding:
             28px 20px;
 
-        border-radius: 22px;
+        border-radius:
+            22px;
     }
 
 
-    /* PROFILE */
-
     .photo {
 
-        width: 145px;
+        width: 140px;
 
-        height: 145px;
+        height: 140px;
     }
 
 
@@ -831,38 +996,22 @@ footer {
     }
 
 
-    .headline {
-
-        font-size: 13px;
-
-        padding:
-            0 5px;
-    }
-
-
-    /* BUTTONS */
-
     .buttons {
 
-        flex-direction: column;
-
-        gap: 10px;
+        flex-direction:
+            column;
     }
 
 
     .btn {
 
         width: 100%;
-
-        min-width: 0;
     }
 
 
-    /* SOCIAL */
-
     .social {
 
-        gap: 9px;
+        gap: 10px;
     }
 
 
@@ -872,11 +1021,9 @@ footer {
 
         height: 38px;
 
-        font-size: 17px;
+        font-size: 18px;
     }
 
-
-    /* SKILLS */
 
     .skills {
 
@@ -885,102 +1032,498 @@ footer {
     }
 
 
-    .skills span {
+    .footer-photo img {
 
-        padding:
-            12px 14px;
+        width: 100%;
+
+        max-width: 300px;
+
+        height: auto;
     }
 
 
-    /* PROJECT */
+    .share-buttons {
 
-    .project {
-
-        padding:
-            13px;
+        flex-direction:
+            column;
     }
 
 
-    /* QR */
+    .share-btn,
+    .nfc-btn {
 
-    .qr-code {
-
-        width: 125px;
-
-        height: 125px;
+        width: 100%;
     }
 
 
     .qr-large {
 
-        width: 85vw;
+        width: 82vw;
 
-        height: 85vw;
+        height: 82vw;
 
-        max-width: 350px;
+        max-width: 380px;
 
-        max-height: 350px;
-
-        padding: 12px;
+        max-height: 380px;
     }
 
 
-    /* THEME */
+    .qr-close {
 
-    .theme-toggle {
+        top: 15px;
 
-        top: 14px;
-
-        right: 14px;
-
-        width: 38px;
-
-        height: 38px;
-
-        font-size: 15px;
+        right: 15px;
     }
 
 }
 
+/* =================================
+   THEME SWITCHER
+================================= */
 
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
+.theme-switcher {
 
-@media (max-width: 350px) {
+    position: fixed;
 
-    .card {
+    top: 18px;
 
-        padding:
-            25px 15px;
+    right: 18px;
+
+    display: flex;
+
+    gap: 5px;
+
+    padding: 5px;
+
+    background: rgba(16, 36, 68, 0.90);
+
+    border: 1px solid rgba(0, 217, 255, 0.20);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25);
+
+    z-index: 10000;
+}
+
+
+.theme-btn {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #9db2c7;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 16px;
+
+    transition:
+        all 0.3s ease;
+}
+
+
+.theme-btn:hover {
+
+    color: #00d9ff;
+
+    transform: translateY(-2px);
+}
+
+
+.theme-btn.active {
+
+    background: #00d9ff;
+
+    color: #03121f;
+
+    box-shadow:
+        0 4px 12px rgba(0, 217, 255, 0.30);
+}
+
+
+/* =================================
+   LIGHT THEME
+================================= */
+
+body.light-theme {
+
+    background:
+
+        radial-gradient(
+            circle at top left,
+            #dff6ff,
+            transparent 40%
+        ),
+
+        radial-gradient(
+            circle at bottom right,
+            #d9f5f0,
+            transparent 40%
+        ),
+
+        #eef5f9;
+
+    color: #172b3a;
+}
+
+
+/* Card */
+
+body.light-theme .card {
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    border:
+        1px solid
+        rgba(0, 150, 190, 0.18);
+
+    box-shadow:
+
+        0 20px 60px
+        rgba(40, 80, 100, 0.15),
+
+        0 0 30px
+        rgba(0, 183, 255, 0.08);
+}
+
+
+/* Name */
+
+body.light-theme h1 {
+
+    color: #172b3a;
+}
+
+
+/* Job title */
+
+body.light-theme h3 {
+
+    color: #008db8;
+}
+
+
+/* Headline */
+
+body.light-theme .headline {
+
+    color: #536b7d;
+}
+
+
+/* Main buttons */
+
+body.light-theme .secondary-btn {
+
+    background: #e8f3f8;
+
+    color: #173b63;
+
+    border:
+        1px solid #b9d6e4;
+}
+
+
+body.light-theme .secondary-btn:hover {
+
+    background: #dceef5;
+}
+
+
+/* Social */
+
+body.light-theme .social {
+
+    border-bottom:
+        1px solid
+        rgba(23, 56, 99, 0.12);
+}
+
+
+body.light-theme .social a {
+
+    background: #e6f1f6;
+
+    color: #173b63;
+}
+
+
+body.light-theme .social a:hover {
+
+    color: #008db8;
+
+    background: #d9edf5;
+}
+
+
+/* Section headings */
+
+body.light-theme h2 {
+
+    color: #008db8;
+}
+
+
+/* About */
+
+body.light-theme .about-content > p {
+
+    color: #4d6475;
+}
+
+
+body.light-theme .about-content strong {
+
+    color: #172b3a;
+}
+
+
+/* About subtitle */
+
+body.light-theme .about-subtitle {
+
+    color: #008db8;
+}
+
+
+/* Interests */
+
+body.light-theme .interest-list span {
+
+    background:
+        rgba(224, 241, 247, 0.90);
+
+    border:
+        1px solid
+        rgba(0, 150, 190, 0.15);
+
+    color: #40596b;
+}
+
+
+body.light-theme .interest-list span i {
+
+    color: #008db8;
+}
+
+
+body.light-theme .interest-list span:hover {
+
+    border-color:
+        rgba(0, 150, 190, 0.40);
+
+    color: #008db8;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 150, 190, 0.10);
+}
+
+
+/* Skills */
+
+body.light-theme .skills span {
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf7fa,
+            #e2f0f5
+        );
+
+    border:
+        1px solid
+        rgba(0, 150, 190, 0.14);
+
+    color: #304b5d;
+}
+
+
+body.light-theme .skills span i {
+
+    color: #008db8;
+}
+
+
+body.light-theme .skills span:hover {
+
+    border-color:
+        rgba(0, 150, 190, 0.45);
+
+    color: #008db8;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 150, 190, 0.10);
+}
+
+
+/* Projects */
+
+body.light-theme .project {
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf7fa,
+            #e2f0f5
+        );
+
+    border:
+        1px solid
+        rgba(0, 150, 190, 0.12);
+
+    color: #304b5d;
+}
+
+
+body.light-theme .project i {
+
+    color: #008db8;
+}
+
+
+body.light-theme .project:hover {
+
+    border-color:
+        rgba(0, 150, 190, 0.35);
+}
+
+
+/* Share */
+
+body.light-theme .nfc-btn {
+
+    background: #e6f1f6;
+
+    color: #173b63 !important;
+
+    border:
+        1px solid
+        rgba(0, 150, 190, 0.25);
+}
+
+
+body.light-theme .nfc-btn i {
+
+    color: #008db8;
+}
+
+
+body.light-theme .nfc-btn:hover {
+
+    background: #d9edf5;
+}
+
+
+/* Footer */
+
+body.light-theme footer {
+
+    border-top:
+        1px solid
+        rgba(23, 56, 99, 0.12);
+
+    color: #718696;
+}
+
+
+body.light-theme footer i {
+
+    color: #008db8;
+}
+
+
+body.light-theme .footer-separator {
+
+    color: #9bb0bd;
+}
+
+
+/* Theme switcher */
+
+body.light-theme .theme-switcher {
+
+    background:
+        rgba(255, 255, 255, 0.92);
+
+    border:
+        1px solid
+        rgba(0, 150, 190, 0.18);
+
+    box-shadow:
+        0 8px 25px
+        rgba(40, 80, 100, 0.15);
+}
+
+
+body.light-theme .theme-btn {
+
+    color: #7890a0;
+}
+
+
+body.light-theme .theme-btn:hover {
+
+    color: #008db8;
+}
+
+
+body.light-theme .theme-btn.active {
+
+    background: #008db8;
+
+    color: white;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 150, 190, 0.25);
+}
+
+
+/* =================================
+   MOBILE THEME SWITCHER
+================================= */
+
+@media (max-width: 480px) {
+
+    .theme-switcher {
+
+        top: 10px;
+
+        right: 10px;
+
+        padding: 4px;
     }
 
 
-    .photo {
+    .theme-btn {
 
-        width: 130px;
+        width: 34px;
 
-        height: 130px;
-    }
+        height: 34px;
 
-
-    h1 {
-
-        font-size: 26px;
-    }
-
-
-    .social {
-
-        gap: 6px;
-    }
-
-
-    .social a {
-
-        width: 35px;
-
-        height: 35px;
+        font-size: 14px;
     }
 
 }
