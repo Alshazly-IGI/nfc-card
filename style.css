@@ -1034,3 +1034,12 @@ footer {
     }
 
 }
+footer i {
+    color: #00d9ff;
+    margin-right: 5px;
+}
+
+.footer-separator {
+    margin: 0 6px;
+    color: #526b82;
+}
