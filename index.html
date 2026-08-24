@@ -915,6 +915,89 @@ function closeQR() {
 }
 
 </script>
+    <script>
+
+/* =========================
+   THEME
+========================= */
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+const icon =
+    themeToggle.querySelector("i");
+
+
+const savedTheme =
+    localStorage.getItem("theme");
+
+
+if (savedTheme === "light") {
+
+    document.body.classList.add("light-mode");
+
+    icon.classList.remove("fa-moon");
+
+    icon.classList.add("fa-sun");
+}
+
+
+themeToggle.addEventListener("click", function () {
+
+    document.body.classList.toggle("light-mode");
+
+
+    if (document.body.classList.contains("light-mode")) {
+
+        icon.classList.remove("fa-moon");
+
+        icon.classList.add("fa-sun");
+
+        localStorage.setItem("theme", "light");
+
+    } else {
+
+        icon.classList.remove("fa-sun");
+
+        icon.classList.add("fa-moon");
+
+        localStorage.setItem("theme", "dark");
+    }
+
+});
+
+
+/* =========================
+   QR MODAL
+========================= */
+
+function openQR() {
+
+    document.getElementById("qrModal").style.display = "flex";
+
+}
+
+
+function closeQR() {
+
+    document.getElementById("qrModal").style.display = "none";
+
+}
+
+
+/* Close QR with ESC */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closeQR();
+
+    }
+
+});
+
+</script>
 </body>
 
 </html>
