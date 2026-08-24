@@ -601,10 +601,13 @@ h2 i {
    QR CODE
 ================================= */
 
+/* =========================
+   QR SECTION
+========================= */
+
 .qr-section {
 
-    margin:
-        30px auto 20px;
+    margin: 30px auto 25px;
 
     text-align: center;
 
@@ -622,6 +625,8 @@ h2 i {
 }
 
 
+/* Small QR */
+
 .qr-code {
 
     width: 140px;
@@ -630,48 +635,60 @@ h2 i {
 
     padding: 8px;
 
-    background: white;
+    background: #ffffff;
 
     border-radius: 15px;
 
     display: block;
 
-    margin: auto;
+    margin: 0 auto;
 
     cursor: pointer;
 
+    object-fit: contain;
+
     box-shadow:
-        0 8px 25px
-        rgba(0, 0, 0, 0.35);
+        0 8px 25px rgba(0, 0, 0, 0.35);
 
     transition:
-        transform 0.3s ease;
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 
 }
 
 
 .qr-code:hover {
 
-    transform:
-        scale(1.05);
+    transform: scale(1.06);
+
+    box-shadow:
+        0 10px 30px rgba(0, 217, 255, 0.3);
 
 }
 
 
-/* =================================
+/* =========================
    QR MODAL
-================================= */
+========================= */
 
 .qr-modal {
-
-    display: none;
 
     position: fixed;
 
     inset: 0;
 
+    width: 100vw;
+
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
     background:
-        rgba(0, 0, 0, 0.88);
+        rgba(0, 0, 0, 0.90);
 
     backdrop-filter:
         blur(8px);
@@ -679,26 +696,43 @@ h2 i {
     -webkit-backdrop-filter:
         blur(8px);
 
-    justify-content: center;
+    z-index: 999999;
 
-    align-items: center;
+    opacity: 0;
 
-    z-index: 99999;
+    visibility: hidden;
 
-    cursor: pointer;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
 
 }
 
 
-/* Large QR */
+/* Modal visible */
+
+.qr-modal.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+/* =========================
+   LARGE QR
+========================= */
 
 .qr-large {
 
-    width:
-        min(82vw, 420px);
+    width: min(82vw, 420px);
 
-    height:
-        min(82vw, 420px);
+    height: min(82vw, 420px);
 
     padding: 15px;
 
@@ -708,31 +742,53 @@ h2 i {
 
     object-fit: contain;
 
+    display: block;
+
     box-shadow:
         0 0 50px
-        rgba(0, 217, 255, 0.4);
+        rgba(0, 217, 255, 0.45);
 
-    animation:
-        qrZoom 0.25s ease;
+    transform: scale(0.7);
+
+    transition:
+        transform 0.25s ease;
 
 }
 
 
-/* Close icon */
+.qr-modal.show .qr-large {
+
+    transform: scale(1);
+
+}
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
 
 .qr-close {
 
-    position: fixed;
+    position: absolute;
 
-    top: 25px;
+    top: 20px;
 
-    right: 25px;
+    right: 20px;
 
-    width: 42px;
+    width: 45px;
 
-    height: 42px;
+    height: 45px;
+
+    border: none;
 
     border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.15);
+
+    color: white;
+
+    font-size: 22px;
 
     display: flex;
 
@@ -740,12 +796,34 @@ h2 i {
 
     justify-content: center;
 
+    cursor: pointer;
+
+    z-index: 2;
+
+    transition:
+        all 0.3s ease;
+
+}
+
+
+.qr-close:hover {
+
     background:
-        rgba(255,255,255,0.12);
+        rgba(255,255,255,0.3);
 
-    color: white;
+    transform:
+        rotate(90deg);
 
-    font-size: 22px;
+}
+
+
+/* =========================
+   PREVENT PAGE SCROLL
+========================= */
+
+body.qr-open {
+
+    overflow: hidden;
 
 }
 
