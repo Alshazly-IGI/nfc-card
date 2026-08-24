@@ -1049,3 +1049,127 @@ footer i {
     margin: 0 6px;
     color: #526b82;
 }
+/* =========================
+   ABOUT ME
+========================= */
+
+.about-section {
+    margin-top: 32px;
+}
+
+.about-content {
+    text-align: left;
+}
+
+.about-content > p {
+    color: #c3d1df;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 14px;
+}
+
+.about-content strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+
+/* =========================
+   ABOUT SUBTITLE
+========================= */
+
+.about-subtitle {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+
+    margin-bottom: 14px;
+
+    color: #00d9ff;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+}
+
+.about-subtitle i {
+
+    font-size: 16px;
+
+}
+
+
+/* =========================
+   INTERESTS
+========================= */
+
+.interest-list {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+}
+
+
+.interest-list span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 11px;
+
+    background:
+        rgba(23, 56, 99, 0.75);
+
+    border:
+        1px solid
+        rgba(0, 217, 255, 0.12);
+
+    border-radius: 20px;
+
+    color: #cdddea;
+
+    font-size: 12px;
+
+    transition:
+        all 0.3s ease;
+
+}
+
+
+.interest-list span i {
+
+    color: #00d9ff;
+
+    font-size: 12px;
+
+}
+
+
+.interest-list span:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(0, 217, 255, 0.45);
+
+    color: #00d9ff;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 217, 255, 0.12);
+
+}
