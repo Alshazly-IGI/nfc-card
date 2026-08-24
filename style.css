@@ -65,29 +65,40 @@ body {
 }
 
 .photo {
-
-    width: 155px;
-
-    height: 155px;
+    width: 170px;
+    height: 170px;
 
     object-fit: cover;
-
     object-position: center;
 
-    border-radius: 22px;
+    border-radius: 50%;
 
     display: block;
+    margin: 0 auto 22px;
 
-    margin: 0 auto 20px;
+    /* إطار الصورة */
+    border: 4px solid #00d9ff;
 
-    border: 3px solid #00d9ff;
+    /* مسافة بين الصورة والإطار الخارجي */
+    outline: 5px solid rgba(0, 217, 255, 0.10);
 
+    /* Glow */
     box-shadow:
-        0 0 0 5px rgba(0, 217, 255, 0.08),
-        0 10px 30px rgba(0, 0, 0, 0.35);
+        0 0 0 8px rgba(0, 217, 255, 0.05),
+        0 0 25px rgba(0, 217, 255, 0.35),
+        0 15px 35px rgba(0, 0, 0, 0.45);
 
+    transition: all 0.4s ease;
 }
 
+.photo:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 0 8px rgba(0, 217, 255, 0.08),
+        0 0 35px rgba(0, 217, 255, 0.55),
+        0 18px 40px rgba(0, 0, 0, 0.5);
+}
 
 h1 {
 
