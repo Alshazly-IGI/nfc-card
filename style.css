@@ -3,18 +3,14 @@
 ================================= */
 
 * {
-
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
 
     font-family:
         "Segoe UI",
         Arial,
         sans-serif;
-
 }
 
 
@@ -27,7 +23,6 @@ body {
     min-height: 100vh;
 
     background:
-
         radial-gradient(
             circle at top left,
             #123b63,
@@ -51,7 +46,6 @@ body {
     padding: 30px 15px;
 
     color: white;
-
 }
 
 
@@ -68,11 +62,9 @@ body {
     background:
         rgba(16, 36, 68, 0.94);
 
-    backdrop-filter:
-        blur(12px);
+    backdrop-filter: blur(12px);
 
-    -webkit-backdrop-filter:
-        blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
     border:
         1px solid
@@ -91,7 +83,6 @@ body {
 
         0 0 30px
         rgba(0, 183, 255, 0.12);
-
 }
 
 
@@ -106,7 +97,9 @@ body {
 }
 
 
-/* Profile image */
+/* =================================
+   PROFILE PHOTO
+================================= */
 
 .photo {
 
@@ -116,15 +109,13 @@ body {
 
     object-fit: cover;
 
-    object-position:
-        center center -2%;
+    object-position: center center;
 
     border-radius: 50%;
 
     display: block;
 
-    margin:
-        0 auto 22px;
+    margin: 0 auto 22px;
 
     border:
         4px solid #00d9ff;
@@ -146,7 +137,6 @@ body {
 
     transition:
         all 0.4s ease;
-
 }
 
 
@@ -165,7 +155,6 @@ body {
 
         0 18px 40px
         rgba(0, 0, 0, 0.5);
-
 }
 
 
@@ -182,7 +171,6 @@ h1 {
     letter-spacing: 0.5px;
 
     margin-bottom: 7px;
-
 }
 
 
@@ -195,7 +183,6 @@ h3 {
     font-weight: 600;
 
     margin-bottom: 12px;
-
 }
 
 
@@ -206,7 +193,6 @@ h3 {
     font-size: 14px;
 
     line-height: 1.7;
-
 }
 
 
@@ -225,7 +211,6 @@ h3 {
     margin: 28px 0;
 
     flex-wrap: wrap;
-
 }
 
 
@@ -253,7 +238,6 @@ h3 {
 
     transition:
         all 0.3s ease;
-
 }
 
 
@@ -262,7 +246,6 @@ h3 {
     background: #00d9ff;
 
     color: #03121f;
-
 }
 
 
@@ -274,7 +257,6 @@ h3 {
 
     border:
         1px solid #2b587f;
-
 }
 
 
@@ -286,12 +268,11 @@ h3 {
     box-shadow:
         0 8px 20px
         rgba(0, 217, 255, 0.22);
-
 }
 
 
 /* =================================
-   SOCIAL
+   SOCIAL MEDIA
 ================================= */
 
 .social {
@@ -310,7 +291,6 @@ h3 {
     border-bottom:
         1px solid
         rgba(255,255,255,0.08);
-
 }
 
 
@@ -338,7 +318,6 @@ h3 {
 
     transition:
         all 0.3s ease;
-
 }
 
 
@@ -352,7 +331,6 @@ h3 {
     box-shadow:
         0 6px 15px
         rgba(0, 217, 255, 0.2);
-
 }
 
 
@@ -363,7 +341,6 @@ h3 {
 section {
 
     margin-top: 32px;
-
 }
 
 
@@ -382,25 +359,144 @@ h2 {
     font-size: 21px;
 
     margin-bottom: 17px;
-
 }
 
 
 h2 i {
 
     font-size: 17px;
-
 }
 
 
-.about-text {
+/* =================================
+   ABOUT ME
+================================= */
+
+.about-section {
+
+    margin-top: 32px;
+}
+
+
+.about-content {
+
+    text-align: left;
+}
+
+
+.about-content > p {
 
     color: #c3d1df;
 
-    font-size: 15px;
+    font-size: 14px;
 
     line-height: 1.8;
 
+    margin-bottom: 14px;
+}
+
+
+.about-content strong {
+
+    color: #ffffff;
+
+    font-weight: 600;
+}
+
+
+/* =================================
+   ABOUT SUBTITLE
+================================= */
+
+.about-subtitle {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+
+    margin-bottom: 14px;
+
+    color: #00d9ff;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+.about-subtitle i {
+
+    font-size: 16px;
+}
+
+
+/* =================================
+   INTERESTS
+================================= */
+
+.interest-list {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+}
+
+
+.interest-list span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 11px;
+
+    background:
+        rgba(23, 56, 99, 0.75);
+
+    border:
+        1px solid
+        rgba(0, 217, 255, 0.12);
+
+    border-radius: 20px;
+
+    color: #cdddea;
+
+    font-size: 12px;
+
+    transition:
+        all 0.3s ease;
+}
+
+
+.interest-list span i {
+
+    color: #00d9ff;
+
+    font-size: 12px;
+}
+
+
+.interest-list span:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(0, 217, 255, 0.45);
+
+    color: #00d9ff;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 217, 255, 0.12);
 }
 
 
@@ -418,7 +514,6 @@ h2 i {
     gap: 12px;
 
     margin-top: 10px;
-
 }
 
 
@@ -455,7 +550,6 @@ h2 i {
 
     transition:
         all 0.3s ease;
-
 }
 
 
@@ -468,7 +562,20 @@ h2 i {
     min-width: 20px;
 
     text-align: center;
+}
 
+
+/* Excel Logo */
+
+.skill-logo {
+
+    width: 20px;
+
+    height: 20px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
 }
 
 
@@ -485,13 +592,6 @@ h2 i {
         rgba(0, 217, 255, 0.12);
 
     color: #00d9ff;
-
-}
-.skill-logo {
-    width: 20px;
-    height: 20px;
-    fill: #21A366;
-    flex-shrink: 0;
 }
 
 
@@ -530,7 +630,6 @@ h2 i {
 
     transition:
         0.3s;
-
 }
 
 
@@ -543,7 +642,6 @@ h2 i {
     width: 25px;
 
     text-align: center;
-
 }
 
 
@@ -554,7 +652,6 @@ h2 i {
 
     border-color:
         rgba(0, 217, 255, 0.35);
-
 }
 
 
@@ -572,7 +669,6 @@ h2 i {
 
     margin:
         30px auto 20px;
-
 }
 
 
@@ -593,24 +689,19 @@ h2 i {
     box-shadow:
         0 10px 30px
         rgba(0,0,0,0.35);
-
 }
 
 
 /* =================================
-   QR CODE
-================================= */
-
-/* =========================
    QR SECTION
-========================= */
+================================= */
 
 .qr-section {
 
-    margin: 30px auto 25px;
+    margin:
+        30px auto 25px;
 
     text-align: center;
-
 }
 
 
@@ -621,11 +712,12 @@ h2 i {
     font-size: 12px;
 
     margin-bottom: 12px;
-
 }
 
 
-/* Small QR */
+/* =================================
+   SMALL QR
+================================= */
 
 .qr-code {
 
@@ -635,7 +727,7 @@ h2 i {
 
     padding: 8px;
 
-    background: #ffffff;
+    background: white;
 
     border-radius: 15px;
 
@@ -643,52 +735,51 @@ h2 i {
 
     margin: 0 auto;
 
-    cursor: pointer;
-
     object-fit: contain;
 
+    cursor: pointer;
+
     box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.35);
+        0 8px 25px
+        rgba(0,0,0,0.35);
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
-
 }
 
 
 .qr-code:hover {
 
-    transform: scale(1.06);
+    transform:
+        scale(1.06);
 
     box-shadow:
-        0 10px 30px rgba(0, 217, 255, 0.3);
-
+        0 10px 30px
+        rgba(0,217,255,0.35);
 }
 
 
-/* =========================
-   QR MODAL
-========================= */
+/* =================================
+   QR FULL SCREEN
+================================= */
 
 .qr-modal {
 
+    display: none;
+
     position: fixed;
 
-    inset: 0;
+    top: 0;
+
+    left: 0;
 
     width: 100vw;
 
     height: 100vh;
 
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
     background:
-        rgba(0, 0, 0, 0.90);
+        rgba(0,0,0,0.92);
 
     backdrop-filter:
         blur(8px);
@@ -696,43 +787,35 @@ h2 i {
     -webkit-backdrop-filter:
         blur(8px);
 
+    justify-content: center;
+
+    align-items: center;
+
     z-index: 999999;
 
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.25s ease,
-        visibility 0.25s ease;
-
+    padding: 20px;
 }
 
 
-/* Modal visible */
+/* OPEN */
 
 .qr-modal.show {
 
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
-
+    display: flex;
 }
 
 
-/* =========================
+/* =================================
    LARGE QR
-========================= */
+================================= */
 
 .qr-large {
 
-    width: min(82vw, 420px);
+    width:
+        min(85vw, 420px);
 
-    height: min(82vw, 420px);
+    height:
+        min(85vw, 420px);
 
     padding: 15px;
 
@@ -746,26 +829,16 @@ h2 i {
 
     box-shadow:
         0 0 50px
-        rgba(0, 217, 255, 0.45);
+        rgba(0,217,255,0.5);
 
-    transform: scale(0.7);
-
-    transition:
-        transform 0.25s ease;
-
+    animation:
+        qrZoom 0.25s ease;
 }
 
 
-.qr-modal.show .qr-large {
-
-    transform: scale(1);
-
-}
-
-
-/* =========================
-   CLOSE BUTTON
-========================= */
+/* =================================
+   QR CLOSE BUTTON
+================================= */
 
 .qr-close {
 
@@ -798,11 +871,10 @@ h2 i {
 
     cursor: pointer;
 
-    z-index: 2;
+    z-index: 1000000;
 
     transition:
         all 0.3s ease;
-
 }
 
 
@@ -813,18 +885,6 @@ h2 i {
 
     transform:
         rotate(90deg);
-
-}
-
-
-/* =========================
-   PREVENT PAGE SCROLL
-========================= */
-
-body.qr-open {
-
-    overflow: hidden;
-
 }
 
 
@@ -838,7 +898,6 @@ body.qr-open {
             scale(0.6);
 
         opacity: 0;
-
     }
 
     to {
@@ -847,9 +906,15 @@ body.qr-open {
             scale(1);
 
         opacity: 1;
-
     }
+}
 
+
+/* Prevent scroll */
+
+body.qr-open {
+
+    overflow: hidden;
 }
 
 
@@ -869,11 +934,10 @@ body.qr-open {
         25px 0;
 
     flex-wrap: wrap;
-
 }
 
 
-/* Share Card */
+/* Share */
 
 .share-btn {
 
@@ -891,7 +955,7 @@ body.qr-open {
 
     border:
         1px solid
-        rgba(0, 217, 255, 0.3);
+        rgba(0,217,255,0.3);
 
     cursor: pointer;
 
@@ -911,7 +975,6 @@ body.qr-open {
 
     transition:
         all 0.3s ease;
-
 }
 
 
@@ -933,7 +996,7 @@ body.qr-open {
 
     border:
         1px solid
-        rgba(0, 217, 255, 0.3);
+        rgba(0,217,255,0.3);
 
     cursor: pointer;
 
@@ -953,7 +1016,6 @@ body.qr-open {
 
     transition:
         all 0.3s ease;
-
 }
 
 
@@ -961,7 +1023,6 @@ body.qr-open {
 .nfc-btn i {
 
     color: white;
-
 }
 
 
@@ -973,8 +1034,7 @@ body.qr-open {
 
     box-shadow:
         0 8px 20px
-        rgba(0, 217, 255, 0.22);
-
+        rgba(0,217,255,0.22);
 }
 
 
@@ -997,7 +1057,23 @@ footer {
     font-size: 12px;
 
     line-height: 1.6;
+}
 
+
+footer i {
+
+    color: #00d9ff;
+
+    margin-right: 5px;
+}
+
+
+.footer-separator {
+
+    margin:
+        0 6px;
+
+    color: #526b82;
 }
 
 
@@ -1007,12 +1083,10 @@ footer {
 
 @media (max-width: 480px) {
 
-
     body {
 
         padding:
             15px 10px;
-
     }
 
 
@@ -1023,7 +1097,6 @@ footer {
 
         border-radius:
             22px;
-
     }
 
 
@@ -1032,21 +1105,18 @@ footer {
         width: 140px;
 
         height: 140px;
-
     }
 
 
     h1 {
 
         font-size: 29px;
-
     }
 
 
     h3 {
 
         font-size: 16px;
-
     }
 
 
@@ -1054,21 +1124,18 @@ footer {
 
         flex-direction:
             column;
-
     }
 
 
     .btn {
 
         width: 100%;
-
     }
 
 
     .social {
 
         gap: 10px;
-
     }
 
 
@@ -1079,7 +1146,6 @@ footer {
         height: 38px;
 
         font-size: 18px;
-
     }
 
 
@@ -1087,7 +1153,6 @@ footer {
 
         grid-template-columns:
             1fr;
-
     }
 
 
@@ -1098,7 +1163,6 @@ footer {
         max-width: 300px;
 
         height: auto;
-
     }
 
 
@@ -1106,7 +1170,6 @@ footer {
 
         flex-direction:
             column;
-
     }
 
 
@@ -1114,140 +1177,26 @@ footer {
     .nfc-btn {
 
         width: 100%;
-
     }
 
-}
-footer i {
-    color: #00d9ff;
-    margin-right: 5px;
-}
 
-.footer-separator {
-    margin: 0 6px;
-    color: #526b82;
-}
-/* =========================
-   ABOUT ME
-========================= */
+    .qr-large {
 
-.about-section {
-    margin-top: 32px;
-}
+        width: 82vw;
 
-.about-content {
-    text-align: left;
-}
+        height: 82vw;
 
-.about-content > p {
-    color: #c3d1df;
-    font-size: 14px;
-    line-height: 1.8;
-    margin-bottom: 14px;
-}
+        max-width: 380px;
 
-.about-content strong {
-    color: #ffffff;
-    font-weight: 600;
-}
+        max-height: 380px;
+    }
 
 
-/* =========================
-   ABOUT SUBTITLE
-========================= */
+    .qr-close {
 
-.about-subtitle {
+        top: 15px;
 
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    margin-top: 25px;
-
-    margin-bottom: 14px;
-
-    color: #00d9ff;
-
-    font-size: 15px;
-
-    font-weight: 600;
-
-}
-
-.about-subtitle i {
-
-    font-size: 16px;
-
-}
-
-
-/* =========================
-   INTERESTS
-========================= */
-
-.interest-list {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 9px;
-
-}
-
-
-.interest-list span {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    padding: 8px 11px;
-
-    background:
-        rgba(23, 56, 99, 0.75);
-
-    border:
-        1px solid
-        rgba(0, 217, 255, 0.12);
-
-    border-radius: 20px;
-
-    color: #cdddea;
-
-    font-size: 12px;
-
-    transition:
-        all 0.3s ease;
-
-}
-
-
-.interest-list span i {
-
-    color: #00d9ff;
-
-    font-size: 12px;
-
-}
-
-
-.interest-list span:hover {
-
-    transform:
-        translateY(-2px);
-
-    border-color:
-        rgba(0, 217, 255, 0.45);
-
-    color: #00d9ff;
-
-    box-shadow:
-        0 5px 15px
-        rgba(0, 217, 255, 0.12);
+        right: 15px;
+    }
 
 }
