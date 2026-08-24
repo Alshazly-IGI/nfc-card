@@ -38,7 +38,7 @@ box-shadow:0 0 30px #00b7ff55;
 .photo {
     width: 150px;
     height: 150px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 50%;
     display: block;
     margin: 0 auto 20px;
