@@ -1290,14 +1290,14 @@ body.light-theme .primary-btn {
         white;
 }
 
-
+/*btn*/
 body.light-theme .secondary-btn {
 
     background:
         #e5e9ed;
 
     color:
-        #12355b;
+        #ffffff;
 
     border:
         1px solid
