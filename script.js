@@ -1,21 +1,50 @@
 console.log("Welcome");
 
-document.addEventListener("DOMContentLoaded", function () {
 
-    const qrModal = document.getElementById("qrModal");
 
-    if (!qrModal) {
-        console.error("QR Modal not found");
+/* =================================
+   QR CODE
+================================= */
+
+function openQR() {
+
+    const modal = document.getElementById("qrModal");
+
+    if (!modal) {
+        console.error("QR Modal not found!");
         return;
     }
 
-    qrModal.addEventListener("click", function (event) {
+    modal.style.display = "flex";
 
-        // Close only when clicking the dark background
-        if (event.target === qrModal) {
-            closeQR();
-        }
+    document.body.style.overflow = "hidden";
+}
 
-    });
+
+function closeQR() {
+
+    const modal = document.getElementById("qrModal");
+
+    if (!modal) {
+        return;
+    }
+
+    modal.style.display = "none";
+
+    document.body.style.overflow = "";
+}
+
+
+/* =================================
+   CLOSE WITH ESC
+================================= */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closeQR();
+
+    }
 
 });
