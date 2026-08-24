@@ -550,3 +550,24 @@ footer {
     }
 
 }
+.qr-section {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.qr-section p {
+    color: #8fa9c0;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.qr-code {
+    width: 130px;
+    height: 130px;
+    padding: 8px;
+    background: white;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
