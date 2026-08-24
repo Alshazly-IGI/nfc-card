@@ -245,30 +245,36 @@ async function shareNFC() {
 
 }
 
-</script>
-    </section>
-
-
-
-
-    <!-- Footer -->
-    <footer>
-
-        Made with ❤️ by Alshazly Altieb Abouelhamd
-
-    </footer>
-
-</div>
 <script>
+async function shareNFC() {
 
-function openQR() {
-    document.getElementById("qrModal").style.display = "flex";
+    if (!("NDEFReader" in window)) {
+        alert("Web NFC is not supported on this phone/browser.");
+        return;
+    }
+
+    try {
+
+        const ndef = new NDEFReader();
+
+        await ndef.write({
+            records: [
+                {
+                    recordType: "url",
+                    data: "https://alshazly-igi.github.io/nfc-card/"
+                }
+            ]
+        });
+
+        alert("NFC link written successfully!");
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("NFC Error: " + error.message);
+    }
 }
-
-function closeQR() {
-    document.getElementById("qrModal").style.display = "none";
-}
-
 </script>
 </body>
 </html>
