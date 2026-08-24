@@ -1,710 +1,656 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-body {
+<head>
 
-    min-height: 100vh;
+    <meta charset="UTF-8">
 
-    background:
-        radial-gradient(circle at top left, #123b63, transparent 40%),
-        radial-gradient(circle at bottom right, #06445c, transparent 40%),
-        #061426;
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    display: flex;
+    <title>
+        Alshazly Altieb | Healthcare Data Analyst
+    </title>
 
-    justify-content: center;
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    align-items: flex-start;
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="style.css">
 
-    padding: 30px 15px;
+</head>
 
-    color: white;
-}
 
+<body>
 
-/* =========================
-   CARD
-========================= */
 
-.card {
+<div class="card">
 
-    width: 100%;
 
-    max-width: 460px;
+    <!-- =================================
+         PROFILE
+    ================================== -->
 
-    background: rgba(16, 36, 68, 0.92);
+    <div class="profile">
 
-    backdrop-filter: blur(12px);
+        <img src="s.jpg"
+             class="photo"
+             alt="Alshazly Altieb">
 
-    border: 1px solid rgba(0, 217, 255, 0.18);
+        <h1>
+            Alshazly Altieb
+        </h1>
 
-    border-radius: 28px;
+        <h3>
+            Healthcare Data Analyst
+        </h3>
 
-    padding: 35px 30px;
+        <p class="headline">
+            SQL Server • Power BI • Python • Oncology Databases
+        </p>
 
-    text-align: center;
+    </div>
 
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.45),
-        0 0 30px rgba(0, 183, 255, 0.12);
-}
 
 
-/* =========================
-   PROFILE
-========================= */
+    <!-- =================================
+         MAIN BUTTONS
+    ================================== -->
 
-.profile {
+    <div class="buttons">
 
-    padding-bottom: 10px;
 
-}
+        <!-- Save Contact -->
 
-.photo {
-    width: 200px;
-    height: 200px;
+        <a href="contact.vcf"
+           class="btn primary-btn">
 
-    object-fit: cover;
-    object-position: center -0.5%;
-  
-    border-radius: 50%;
+            <i class="fa-solid fa-address-card"></i>
 
-    display: block;
-    margin: 0 auto 22px;
+            Save Contact
 
-    /* إطار الصورة */
-    border: 4px solid #00d9ff;
+        </a>
 
-    /* مسافة بين الصورة والإطار الخارجي */
-    outline: 5px solid rgba(0, 217, 255, 0.10);
 
-    /* Glow */
-    box-shadow:
-        0 0 0 8px rgba(0, 217, 255, 0.05),
-        0 0 25px rgba(0, 217, 255, 0.35),
-        0 15px 35px rgba(0, 0, 0, 0.45);
+        <!-- Download CV -->
 
-    transition: all 0.4s ease;
-}
+        <a href="Alshazly_Altieb_Data_Analysis.pdf"
+           class="btn secondary-btn"
+           download="Alshazly_Altieb_Data_Analysis.pdf">
 
-.photo:hover {
-    transform: scale(1.04);
+            <i class="fa-solid fa-file-pdf"></i>
 
-    box-shadow:
-        0 0 0 8px rgba(0, 217, 255, 0.08),
-        0 0 35px rgba(0, 217, 255, 0.55),
-        0 18px 40px rgba(0, 0, 0, 0.5);
-}
+            Download CV
 
-h1 {
+        </a>
 
-    font-size: 34px;
 
-    font-weight: 700;
+    </div>
 
-    letter-spacing: 0.5px;
 
-    margin-bottom: 7px;
 
-}
+    <!-- =================================
+         SOCIAL MEDIA
+    ================================== -->
 
+    <div class="social">
 
-h3 {
 
-    color: #00d9ff;
+        <!-- LinkedIn -->
 
-    font-size: 18px;
+        <a href="https://www.linkedin.com/in/alshazly-altieb-abouelhamd-06aa9b1a7"
+           target="_blank"
+           rel="noopener noreferrer"
+           title="LinkedIn">
 
-    font-weight: 600;
+            <i class="fab fa-linkedin"></i>
 
-    margin-bottom: 12px;
+        </a>
 
-}
 
+        <!-- GitHub -->
 
-.headline {
+        <a href="#"
+           title="GitHub">
 
-    color: #b8c9dc;
+            <i class="fab fa-github"></i>
 
-    font-size: 14px;
+        </a>
 
-    line-height: 1.7;
 
-}
+        <!-- Facebook -->
 
+        <a href="#"
+           title="Facebook">
 
-/* =========================
-   BUTTONS
-========================= */
+            <i class="fab fa-facebook"></i>
 
-.buttons {
+        </a>
 
-    display: flex;
 
-    justify-content: center;
+        <!-- Instagram -->
 
-    gap: 12px;
+        <a href="#"
+           title="Instagram">
 
-    margin: 28px 0;
+            <i class="fab fa-instagram"></i>
 
-    flex-wrap: wrap;
+        </a>
 
-}
 
+        <!-- WhatsApp -->
 
-.btn {
+        <a href="https://wa.me/201005892249?text=Hello%20Alshazly%2C%20I%20would%20like%20to%20contact%20you."
+           target="_blank"
+           rel="noopener noreferrer"
+           title="WhatsApp">
 
-    flex: 1;
+            <i class="fab fa-whatsapp"></i>
 
-    min-width: 160px;
+        </a>
 
-    padding: 13px 16px;
 
-    border-radius: 12px;
+        <!-- Email -->
 
-    text-decoration: none;
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=asadego800@gmail.com&su=Contact%20from%20Digital%20Card"
+           target="_blank"
+           rel="noopener noreferrer"
+           title="Email">
 
-    font-weight: 600;
+            <i class="fa-solid fa-envelope"></i>
 
-    display: inline-flex;
+        </a>
 
-    align-items: center;
 
-    justify-content: center;
+    </div>
 
-    gap: 8px;
 
-    transition: all 0.3s ease;
 
-}
+    <!-- =================================
+         ABOUT ME
+    ================================== -->
 
+    <section>
 
-.primary-btn {
 
-    background: #00d9ff;
+        <h2>
 
-    color: #03121f;
+            <i class="fa-solid fa-user"></i>
 
-}
+            About Me
 
+        </h2>
 
-.secondary-btn {
 
-    background: #173b63;
+        <p class="about-text">
 
-    color: white;
+            Healthcare Data Analyst with experience in oncology
+            databases, SQL Server, Power BI, Python and healthcare analytics.
 
-    border: 1px solid #2b587f;
+        </p>
 
-}
 
+    </section>
 
-.btn:hover {
 
-    transform: translateY(-3px);
 
-    box-shadow: 0 8px 20px rgba(0, 217, 255, 0.22);
+    <!-- =================================
+         SKILLS
+    ================================== -->
 
-}
+    <section class="skills-section">
 
 
-/* =========================
-   SOCIAL
-========================= */
+        <h2>
 
-.social {
+            <i class="fa-solid fa-code"></i>
 
-    display: flex;
+            Skills
 
-    justify-content: center;
+        </h2>
 
-    gap: 18px;
 
-    margin: 25px 0 35px;
+        <div class="skills">
 
-    padding-bottom: 25px;
 
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+            <span>
 
-}
+                <i class="fa-solid fa-database"></i>
 
+                SQL Server
 
-.social a {
+            </span>
 
-    width: 42px;
 
-    height: 42px;
+            <span>
 
-    display: flex;
+                <i class="fa-solid fa-chart-column"></i>
 
-    align-items: center;
+                Power BI
 
-    justify-content: center;
+            </span>
 
-    border-radius: 50%;
 
-    background: #173863;
+            <span>
 
-    color: white;
+                <i class="fa-brands fa-python"></i>
 
-    font-size: 20px;
+                Python
 
-    text-decoration: none;
+            </span>
 
-    transition: all 0.3s ease;
 
-}
+            <span>
 
+                <i class="fa-solid fa-heart-pulse"></i>
 
-.social a:hover {
+                Healthcare Analytics
 
-    color: #00d9ff;
+            </span>
 
-    transform: translateY(-4px);
 
-    box-shadow: 0 6px 15px rgba(0, 217, 255, 0.2);
+            <span>
 
-}
+                <i class="fa-solid fa-brain"></i>
 
+                Machine Learning
 
-/* =========================
-   SECTIONS
-========================= */
+            </span>
 
-section {
 
-    margin-top: 32px;
+            <span>
 
-}
+                <i class="fa-solid fa-stethoscope"></i>
 
+                ICD-O Coding
 
-h2 {
+            </span>
 
-    display: flex;
 
-    align-items: center;
+        </div>
 
-    justify-content: center;
 
-    gap: 9px;
+    </section>
 
-    color: #00d9ff;
 
-    font-size: 21px;
 
-    margin-bottom: 17px;
+    <!-- =================================
+         PROJECTS
+    ================================== -->
 
-}
+    <section>
 
 
-h2 i {
+        <h2>
 
-    font-size: 17px;
+            <i class="fa-solid fa-chart-line"></i>
 
-}
+            Projects
 
+        </h2>
 
-.about-text {
 
-    color: #c3d1df;
+        <div class="project">
 
-    font-size: 15px;
+            <i class="fa-solid fa-hospital"></i>
 
-    line-height: 1.8;
+            <span>
+                Cancer Registry Dashboard
+            </span>
 
-}
+        </div>
 
 
-/* =========================
-   SKILLS
-========================= */
+        <div class="project">
 
-.skills {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-top: 10px;
-}
+            <i class="fa-solid fa-chart-pie"></i>
 
-.skills span {
-    display: flex;
-    align-items: center;
-    gap: 9px;
+            <span>
+                Hospital KPI Dashboard
+            </span>
 
-    padding: 13px 12px;
+        </div>
 
-    background: linear-gradient(
-        135deg,
-        #173863,
-        #122d50
-    );
 
-    border: 1px solid rgba(0, 217, 255, 0.12);
+        <div class="project">
 
-    border-radius: 12px;
+            <i class="fa-solid fa-database"></i>
 
-    color: #dceaf5;
+            <span>
+                Data Analysis & Business Intelligence
+            </span>
 
-    font-size: 13px;
-    font-weight: 500;
+        </div>
 
-    text-align: left;
 
-    transition: all 0.3s ease;
-}
+    </section>
 
-.skills span i {
-    color: #00d9ff;
-    font-size: 16px;
-    min-width: 20px;
-    text-align: center;
-}
 
-.skills span:hover {
-    transform: translateY(-3px);
 
-    border-color: rgba(0, 217, 255, 0.5);
+    <!-- =================================
+         BOTTOM IMAGE
+    ================================== -->
 
-    box-shadow:
-        0 8px 20px rgba(0, 217, 255, 0.12);
+    <div class="footer-photo">
 
-    color: #00d9ff;
-}
+        <img src="Best.jpg"
+             alt="Alshazly Altieb">
 
-/* =========================
-   PROJECTS
-========================= */
+    </div>
 
-.project {
 
-    display: flex;
 
-    align-items: center;
+    <!-- =================================
+         QR CODE
+    ================================== -->
 
-    gap: 12px;
+    <div class="qr-section">
 
-    text-align: left;
 
-    background: linear-gradient(
-        135deg,
-        #173863,
-        #122d50
-    );
+        <p>
+            Scan to view my digital card
+        </p>
 
-    border: 1px solid rgba(0, 217, 255, 0.08);
 
-    padding: 15px;
+        <img src="bing_generated_qrcode.png"
+             class="qr-code"
+             alt="QR Code"
+             onclick="openQR()">
 
-    margin: 10px 0;
 
-    border-radius: 13px;
+    </div>
 
-    color: #dceaf5;
 
-    transition: 0.3s;
 
-}
+    <!-- =================================
+         QR MODAL
+    ================================== -->
 
+    <div id="qrModal"
+         class="qr-modal"
+         onclick="closeQR()">
 
-.project i {
 
-    color: #00d9ff;
+        <div class="qr-close">
 
-    font-size: 18px;
+            <i class="fa-solid fa-xmark"></i>
 
-    width: 25px;
+        </div>
 
-    text-align: center;
 
-}
+        <img src="bing_generated_qrcode.png"
+             class="qr-large"
+             alt="Large QR Code"
+             onclick="event.stopPropagation()">
 
 
-.project:hover {
+    </div>
 
-    transform: translateX(4px);
 
-    border-color: rgba(0, 217, 255, 0.35);
 
-}
+    <!-- =================================
+         SHARE BUTTONS
+    ================================== -->
 
+    <div class="share-buttons">
 
-/* =========================
-   FOOTER IMAGE
-========================= */
 
-.footer-photo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 30px auto 20px;
-}
+        <!-- Share Card -->
 
-.footer-photo img {
-    width: 300px;
-    height: 200px;
-    max-width: 300px;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 15px;
-    display: block;
-}
+        <button type="button"
+                class="share-btn"
+                onclick="shareCard()">
 
+            <i class="fa-solid fa-share-nodes"></i>
 
-/* =========================
-   FOOTER
-========================= */
+            Share Card
 
-footer {
+        </button>
 
-    margin-top: 18px;
 
-    padding-top: 18px;
+        <!-- NFC -->
 
-    border-top: 1px solid rgba(255,255,255,0.08);
+        <button type="button"
+                class="nfc-btn"
+                onclick="shareNFC()">
 
-    color: #7f95aa;
+            <i class="fa-solid fa-wifi"></i>
 
-    font-size: 12px;
+            Share via NFC
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =================================
+         FOOTER
+    ================================== -->
+
+    <footer>
+
+        Made with ❤️ by
+        Alshazly Altieb Abouelhamd
+
+    </footer>
+
+
+</div>
+
+
+
+<!-- =================================
+     JAVASCRIPT
+================================== -->
+
+<script>
+
+
+/* =================================
+   QR CODE
+================================= */
+
+function openQR() {
+
+    const modal =
+        document.getElementById("qrModal");
+
+    modal.style.display = "flex";
+
+    document.body.style.overflow = "hidden";
 
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+function closeQR() {
 
-@media (max-width: 480px) {
+    const modal =
+        document.getElementById("qrModal");
 
-    body {
+    modal.style.display = "none";
 
-        padding: 15px 10px;
+    document.body.style.overflow = "";
+
+}
+
+
+/* Close QR with ESC */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeQR();
+
+        }
+
+    }
+);
+
+
+
+/* =================================
+   SHARE CARD
+================================= */
+
+async function shareCard() {
+
+
+    const cardURL =
+        "https://alshazly-igi.github.io/nfc-card/";
+
+
+    /* Modern mobile share */
+
+    if (navigator.share) {
+
+        try {
+
+            await navigator.share({
+
+                title:
+                    "Alshazly Altieb | Healthcare Data Analyst",
+
+                text:
+                    "View my digital business card",
+
+                url:
+                    cardURL
+
+            });
+
+        }
+
+        catch (error) {
+
+            console.log(
+                "Share cancelled."
+            );
+
+        }
+
+        return;
 
     }
 
 
-    .card {
+    /* Fallback */
 
-        padding: 28px 20px;
+    try {
 
-        border-radius: 22px;
+        await navigator.clipboard.writeText(
+            cardURL
+        );
 
-    }
-
-
-    .photo {
-
-        width: 140px;
-
-        height: 140px;
+        alert(
+            "Card link copied to clipboard!"
+        );
 
     }
 
+    catch (error) {
 
-    h1 {
-
-        font-size: 29px;
-
-    }
-
-
-    h3 {
-
-        font-size: 16px;
-
-    }
-
-
-    .buttons {
-
-        flex-direction: column;
-
-    }
-
-
-    .btn {
-
-        width: 100%;
-
-    }
-
-
-    .social {
-
-        gap: 10px;
-
-    }
-
-
-    .social a {
-
-        width: 38px;
-
-        height: 38px;
-
-        font-size: 18px;
+        alert(
+            "Card link:\n" +
+            cardURL
+        );
 
     }
 
 }
-.qr-section {
-    margin: 30px auto 20px;
-    text-align: center;
-}
-
-.qr-section p {
-    color: #8fa9c0;
-    font-size: 12px;
-    margin-bottom: 12px;
-}
-
-.qr-code {
-    width: 140px;
-    height: 140px;
-    padding: 8px;
-    background: white;
-    border-radius: 15px;
-    display: block;
-    margin: auto;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.35);
-
-    transition: transform 0.3s ease;
-}
-
-.qr-code:hover {
-    transform: scale(1.05);
-}
 
 
-/* =========================
-   QR MODAL
-========================= */
 
-.qr-modal {
+/* =================================
+   NFC
+================================= */
 
-    display: none;
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0, 0, 0, 0.85);
-
-    backdrop-filter: blur(6px);
-
-    justify-content: center;
-    align-items: center;
-
-    z-index: 9999;
-
-    cursor: pointer;
-}
+async function shareNFC() {
 
 
-/* Large QR */
-
-.qr-large {
-
-    width: min(80vw, 400px);
-
-    height: min(80vw, 400px);
-
-    max-width: 400px;
-    max-height: 400px;
-
-    padding: 15px;
-
-    background: white;
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 0 40px rgba(0, 217, 255, 0.35);
-
-    animation: qrZoom 0.25s ease;
-
-}
+    /*
+       Web NFC is mainly supported
+       on compatible Android browsers.
+    */
 
 
-/* Animation */
+    if (!("NDEFReader" in window)) {
 
-@keyframes qrZoom {
+        alert(
 
-    from {
-        transform: scale(0.6);
-        opacity: 0;
+            "Web NFC is not supported on this device/browser.\n\n" +
+
+            "Please use Share Card or scan the QR Code."
+
+        );
+
+        return;
+
     }
 
-    to {
-        transform: scale(1);
-        opacity: 1;
+
+    try {
+
+
+        const ndef =
+            new NDEFReader();
+
+
+        await ndef.write({
+
+            records: [
+
+                {
+
+                    recordType: "url",
+
+                    data:
+                        "https://alshazly-igi.github.io/nfc-card/"
+
+                }
+
+            ]
+
+        });
+
+
+        alert(
+            "NFC tag written successfully!"
+        );
+
+
+    }
+
+    catch (error) {
+
+
+        console.error(
+            "NFC Error:",
+            error
+        );
+
+
+        alert(
+
+            "NFC Error:\n\n" +
+            error.message
+
+        );
+
     }
 
 }
-.nfc-btn {
-    background: #173863;
-    color: white !important;
-    border: 1px solid rgba(0, 217, 255, 0.3);
-}
 
-.nfc-btn i {
-    color: #00d9ff;
-}
 
-.nfc-btn:hover {
-    background: #1d4773;
-    color: white !important;
-}
-.share-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
+</script>
 
-.share-btn {
-    background: #00b7ff;
-    color: white !important;
-    border: none;
-    cursor: pointer;
-}
 
-.nfc-btn {
-    background: #173863;
-    color: white !important;
-    border: 1px solid rgba(0, 217, 255, 0.3);
-    cursor: pointer;
-}
+</body>
 
-.share-btn i,
-.nfc-btn i {
-    color: white;
-}
-.nfc-btn {
-    background: #173863;
-    color: white !important;
-    border: 1px solid rgba(0, 217, 255, 0.3);
-    cursor: pointer;
-    text-decoration: none;
-    font-family: inherit;
-}
-
-.nfc-btn i {
-    color: white;
-}
-
-.nfc-btn:hover {
-    background: #1d4773;
-    transform: translateY(-2px);
-}
+</html>
