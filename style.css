@@ -697,37 +697,26 @@ h2 i {
 ================================= */
 
 .qr-section {
-
-    margin:
-        30px auto 25px;
-
+    margin: 30px auto 25px;
     text-align: center;
 }
 
-
 .qr-section p {
-
     color: #8fa9c0;
-
     font-size: 12px;
-
     margin-bottom: 12px;
 }
 
 
-/* =================================
-   SMALL QR
-================================= */
+/* Small QR */
 
 .qr-code {
-
     width: 140px;
-
     height: 140px;
 
     padding: 8px;
 
-    background: white;
+    background: #ffffff;
 
     border-radius: 15px;
 
@@ -735,73 +724,49 @@ h2 i {
 
     margin: 0 auto;
 
-    object-fit: contain;
-
     cursor: pointer;
 
+    object-fit: contain;
+
     box-shadow:
-        0 8px 25px
-        rgba(0,0,0,0.35);
+        0 8px 25px rgba(0, 0, 0, 0.35);
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
 }
 
-
 .qr-code:hover {
-
-    transform:
-        scale(1.06);
+    transform: scale(1.06);
 
     box-shadow:
-        0 10px 30px
-        rgba(0,217,255,0.35);
+        0 10px 30px rgba(0, 217, 255, 0.3);
 }
 
 
 /* =================================
-   QR FULL SCREEN
+   QR MODAL
 ================================= */
 
 .qr-modal {
 
+    /* IMPORTANT */
     display: none;
 
     position: fixed;
 
     top: 0;
-
     left: 0;
 
     width: 100vw;
-
     height: 100vh;
 
-    background:
-        rgba(0,0,0,0.92);
-
-    backdrop-filter:
-        blur(8px);
-
-    -webkit-backdrop-filter:
-        blur(8px);
+    background: rgba(0, 0, 0, 0.90);
 
     justify-content: center;
-
     align-items: center;
 
     z-index: 999999;
-
-    padding: 20px;
-}
-
-
-/* OPEN */
-
-.qr-modal.show {
-
-    display: flex;
 }
 
 
@@ -811,11 +776,9 @@ h2 i {
 
 .qr-large {
 
-    width:
-        min(85vw, 420px);
+    width: min(82vw, 420px);
 
-    height:
-        min(85vw, 420px);
+    height: min(82vw, 420px);
 
     padding: 15px;
 
@@ -828,16 +791,14 @@ h2 i {
     display: block;
 
     box-shadow:
-        0 0 50px
-        rgba(0,217,255,0.5);
+        0 0 50px rgba(0, 217, 255, 0.45);
 
-    animation:
-        qrZoom 0.25s ease;
+    animation: qrZoom 0.25s ease;
 }
 
 
 /* =================================
-   QR CLOSE BUTTON
+   CLOSE BUTTON
 ================================= */
 
 .qr-close {
@@ -845,19 +806,16 @@ h2 i {
     position: absolute;
 
     top: 20px;
-
     right: 20px;
 
     width: 45px;
-
     height: 45px;
 
     border: none;
 
     border-radius: 50%;
 
-    background:
-        rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.15);
 
     color: white;
 
@@ -866,49 +824,40 @@ h2 i {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     cursor: pointer;
 
     z-index: 1000000;
 
-    transition:
-        all 0.3s ease;
+    transition: 0.3s;
 }
-
 
 .qr-close:hover {
 
-    background:
-        rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.30);
 
-    transform:
-        rotate(90deg);
+    transform: rotate(90deg);
 }
 
 
-/* QR animation */
+/* =================================
+   QR ANIMATION
+================================= */
 
 @keyframes qrZoom {
 
     from {
-
-        transform:
-            scale(0.6);
-
+        transform: scale(0.6);
         opacity: 0;
     }
 
     to {
-
-        transform:
-            scale(1);
-
+        transform: scale(1);
         opacity: 1;
     }
-}
 
+}
 
 /* Prevent scroll */
 
