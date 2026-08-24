@@ -70,7 +70,7 @@ body {
 
     object-fit: cover;
     object-position: center;
-   object-position: center -1%;
+   object-position: center ;
     border-radius: 50%;
 
     display: block;
