@@ -487,6 +487,12 @@ h2 i {
     color: #00d9ff;
 
 }
+.skill-logo {
+    width: 20px;
+    height: 20px;
+    fill: #21A366;
+    flex-shrink: 0;
+}
 
 
 /* =================================
