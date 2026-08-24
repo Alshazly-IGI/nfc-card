@@ -213,6 +213,38 @@
     <i class="fa-solid fa-wifi"></i>
     Share via NFC
 </a>
+        <script>
+
+async function shareNFC() {
+
+    if (!("NDEFReader" in window)) {
+
+        alert("NFC writing is not supported on this device/browser.");
+
+        return;
+    }
+
+    try {
+
+        const ndef = new NDEFReader();
+
+        await ndef.write(
+            "https://alshazly-igi.github.io/nfc-card/"
+        );
+
+        alert("NFC tag written successfully!");
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("NFC operation failed.");
+
+    }
+
+}
+
+</script>
     </section>
 
 
