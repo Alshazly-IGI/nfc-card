@@ -35,18 +35,13 @@ box-shadow:0 0 30px #00b7ff55;
 
 }
 
-.photo{
-
-width:150px;
-
-height:150px;
-
-border-radius:50%;
-
-margin-bottom:20px;
-
-border:5px solid cyan;
-
+.photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 20px;
 }
 
 h1{
