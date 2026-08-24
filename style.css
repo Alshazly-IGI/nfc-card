@@ -170,3 +170,11 @@ margin-top:35px;
 opacity:.7;
 
 }
+.footer-photo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    display: block;
+    margin: 30px auto 20px;
+    border-radius: 15px;
+}
