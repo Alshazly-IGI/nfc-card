@@ -8,11 +8,15 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Alshazly Altieb | Healthcare Data Analyst</title>
+    <title>
+        Alshazly Altieb | Healthcare Data Analyst
+    </title>
 
+    <!-- Font Awesome -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+    <!-- CSS -->
     <link rel="stylesheet"
           href="style.css">
 
@@ -21,12 +25,13 @@
 
 <body>
 
+
 <div class="card">
 
 
-    <!-- =========================
+    <!-- =================================
          PROFILE
-    ========================== -->
+    ================================== -->
 
     <div class="profile">
 
@@ -34,9 +39,13 @@
              class="photo"
              alt="Alshazly Altieb">
 
-        <h1>Alshazly Altieb</h1>
+        <h1>
+            Alshazly Altieb
+        </h1>
 
-        <h3>Healthcare Data Analyst</h3>
+        <h3>
+            Healthcare Data Analyst
+        </h3>
 
         <p class="headline">
             SQL Server • Power BI • Python • Oncology Databases
@@ -46,11 +55,14 @@
 
 
 
-    <!-- =========================
+    <!-- =================================
          MAIN BUTTONS
-    ========================== -->
+    ================================== -->
 
     <div class="buttons">
+
+
+        <!-- Save Contact -->
 
         <a href="contact.vcf"
            class="btn primary-btn">
@@ -62,6 +74,8 @@
         </a>
 
 
+        <!-- Download CV -->
+
         <a href="Alshazly_Altieb_Data_Analysis.pdf"
            class="btn secondary-btn"
            download="Alshazly_Altieb_Data_Analysis.pdf">
@@ -72,13 +86,14 @@
 
         </a>
 
+
     </div>
 
 
 
-    <!-- =========================
+    <!-- =================================
          SOCIAL MEDIA
-    ========================== -->
+    ================================== -->
 
     <div class="social">
 
@@ -148,15 +163,17 @@
 
         </a>
 
+
     </div>
 
 
 
-    <!-- =========================
-         ABOUT
-    ========================== -->
+    <!-- =================================
+         ABOUT ME
+    ================================== -->
 
     <section>
+
 
         <h2>
 
@@ -174,18 +191,24 @@
 
         </p>
 
+
     </section>
 
 
 
-    <!-- =========================
+    <!-- =================================
          SKILLS
-    ========================== -->
+    ================================== -->
 
     <section class="skills-section">
 
+
         <h2>
+
+            <i class="fa-solid fa-code"></i>
+
             Skills
+
         </h2>
 
 
@@ -248,15 +271,17 @@
 
         </div>
 
+
     </section>
 
 
 
-    <!-- =========================
+    <!-- =================================
          PROJECTS
-    ========================== -->
+    ================================== -->
 
     <section>
+
 
         <h2>
 
@@ -299,28 +324,30 @@
 
         </div>
 
+
     </section>
 
 
 
-    <!-- =========================
-         BOTTOM PROFILE IMAGE
-    ========================== -->
+    <!-- =================================
+         BOTTOM IMAGE
+    ================================== -->
 
     <div class="footer-photo">
 
         <img src="Best.jpg"
-             alt="Alshazly Altieb Abouelhamd">
+             alt="Alshazly Altieb">
 
     </div>
 
 
 
-    <!-- =========================
+    <!-- =================================
          QR CODE
-    ========================== -->
+    ================================== -->
 
     <div class="qr-section">
+
 
         <p>
             Scan to view my digital card
@@ -332,38 +359,48 @@
              alt="QR Code"
              onclick="openQR()">
 
+
     </div>
 
 
 
-    <!-- =========================
+    <!-- =================================
          QR MODAL
-    ========================== -->
+    ================================== -->
 
     <div id="qrModal"
          class="qr-modal"
          onclick="closeQR()">
 
 
+        <div class="qr-close">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </div>
+
+
         <img src="bing_generated_qrcode.png"
              class="qr-large"
-             alt="QR Code"
+             alt="Large QR Code"
              onclick="event.stopPropagation()">
+
 
     </div>
 
 
 
-    <!-- =========================
+    <!-- =================================
          SHARE BUTTONS
-    ========================== -->
+    ================================== -->
 
     <div class="share-buttons">
 
 
         <!-- Share Card -->
 
-        <button class="btn share-btn"
+        <button type="button"
+                class="share-btn"
                 onclick="shareCard()">
 
             <i class="fa-solid fa-share-nodes"></i>
@@ -375,26 +412,29 @@
 
         <!-- NFC -->
 
-       <button type="button"
-        class="btn nfc-btn"
-        onclick="shareNFC()">
+        <button type="button"
+                class="nfc-btn"
+                onclick="shareNFC()">
 
-    <i class="fa-solid fa-wifi"></i>
-    Share via NFC
+            <i class="fa-solid fa-wifi"></i>
 
-</button>
+            Share via NFC
+
+        </button>
+
 
     </div>
 
 
 
-    <!-- =========================
+    <!-- =================================
          FOOTER
-    ========================== -->
+    ================================== -->
 
     <footer>
 
-        Made with ❤️ by Alshazly Altieb Abouelhamd
+        Made with ❤️ by
+        Alshazly Altieb Abouelhamd
 
     </footer>
 
@@ -403,41 +443,70 @@
 
 
 
-<!-- =========================
+<!-- =================================
      JAVASCRIPT
-========================== -->
+================================== -->
 
 <script>
 
 
-/* =========================
+/* =================================
    QR CODE
-========================== */
+================================= */
 
 function openQR() {
 
-    document.getElementById("qrModal").style.display = "flex";
+    const modal =
+        document.getElementById("qrModal");
+
+    modal.style.display = "flex";
+
+    document.body.style.overflow = "hidden";
 
 }
 
 
 function closeQR() {
 
-    document.getElementById("qrModal").style.display = "none";
+    const modal =
+        document.getElementById("qrModal");
+
+    modal.style.display = "none";
+
+    document.body.style.overflow = "";
 
 }
 
 
+/* Close QR with ESC */
 
-/* =========================
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeQR();
+
+        }
+
+    }
+);
+
+
+
+/* =================================
    SHARE CARD
-========================== */
+================================= */
 
 async function shareCard() {
+
 
     const cardURL =
         "https://alshazly-igi.github.io/nfc-card/";
 
+
+    /* Modern mobile share */
 
     if (navigator.share) {
 
@@ -445,11 +514,14 @@ async function shareCard() {
 
             await navigator.share({
 
-                title: "Alshazly Altieb | Healthcare Data Analyst",
+                title:
+                    "Alshazly Altieb | Healthcare Data Analyst",
 
-                text: "View my digital business card",
+                text:
+                    "View my digital business card",
 
-                url: cardURL
+                url:
+                    cardURL
 
             });
 
@@ -457,27 +529,37 @@ async function shareCard() {
 
         catch (error) {
 
-            console.log("Share cancelled.");
+            console.log(
+                "Share cancelled."
+            );
 
         }
+
+        return;
 
     }
 
-    else {
 
-        try {
+    /* Fallback */
 
-            await navigator.clipboard.writeText(cardURL);
+    try {
 
-            alert("Card link copied to clipboard!");
+        await navigator.clipboard.writeText(
+            cardURL
+        );
 
-        }
+        alert(
+            "Card link copied to clipboard!"
+        );
 
-        catch (error) {
+    }
 
-            alert(cardURL);
+    catch (error) {
 
-        }
+        alert(
+            "Card link:\n" +
+            cardURL
+        );
 
     }
 
@@ -485,20 +567,27 @@ async function shareCard() {
 
 
 
-/* =========================
+/* =================================
    NFC
-========================== */
+================================= */
 
 async function shareNFC() {
 
 
-    /* Check Web NFC */
+    /*
+       Web NFC is mainly supported
+       on compatible Android browsers.
+    */
+
 
     if (!("NDEFReader" in window)) {
 
         alert(
-            "Web NFC is not supported on this device or browser.\n\n" +
-            "You can use Share Card or scan the QR Code instead."
+
+            "Web NFC is not supported on this device/browser.\n\n" +
+
+            "Please use Share Card or scan the QR Code."
+
         );
 
         return;
@@ -509,7 +598,8 @@ async function shareNFC() {
     try {
 
 
-        const ndef = new NDEFReader();
+        const ndef =
+            new NDEFReader();
 
 
         await ndef.write({
@@ -540,12 +630,17 @@ async function shareNFC() {
     catch (error) {
 
 
-        console.error(error);
+        console.error(
+            "NFC Error:",
+            error
+        );
 
 
         alert(
-            "NFC Error:\n" +
+
+            "NFC Error:\n\n" +
             error.message
+
         );
 
     }
