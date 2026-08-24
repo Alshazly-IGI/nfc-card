@@ -435,8 +435,8 @@ h2 i {
 .footer-photo img {
     width: 300px;
     height: 200px;
-    max-width: 80px;
-    max-height: 80px;
+    max-width: 300px;
+    max-height: 200px;
     object-fit: cover;
     border-radius: 15px;
     display: block;
