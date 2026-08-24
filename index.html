@@ -523,58 +523,45 @@
 
 
 
-    <!-- =================================
-         QR CODE
-    ================================== -->
+   <!-- =========================
+     QR CODE
+========================= -->
 
-    <div class="qr-section">
+<div class="qr-section">
 
+    <p>Scan to view my digital card</p>
 
-        <p>
-            Scan to view my digital card
-        </p>
+    <img src="bing_generated_qrcode.png"
+         class="qr-code"
+         alt="QR Code"
+         onclick="openQR()">
 
-
-        <img src="bing_generated_qrcode.png"
-             class="qr-code"
-             alt="QR Code"
-             onclick="openQR()">
+</div>
 
 
-    </div>
+<!-- =========================
+     QR MODAL
+========================= -->
 
+<div id="qrModal"
+     class="qr-modal"
+     onclick="closeQR()">
 
+    <button class="qr-close"
+            type="button"
+            onclick="event.stopPropagation(); closeQR();"
+            aria-label="Close QR Code">
 
-    <!-- =================================
-         QR MODAL
-    ================================== -->
+        <i class="fa-solid fa-xmark"></i>
 
-    <div id="qrModal"
-         class="qr-modal"
-         onclick="closeQR()">
+    </button>
 
+    <img src="bing_generated_qrcode.png"
+         class="qr-large"
+         alt="Large QR Code"
+         onclick="event.stopPropagation();">
 
-        <!-- Close Button -->
-
-        <button class="qr-close"
-                type="button"
-                onclick="event.stopPropagation(); closeQR();"
-                aria-label="Close QR Code">
-
-            <i class="fa-solid fa-xmark"></i>
-
-        </button>
-
-
-        <!-- Large QR -->
-
-        <img src="bing_generated_qrcode.png"
-             class="qr-large"
-             alt="Large QR Code"
-             onclick="event.stopPropagation();">
-
-
-    </div>
+</div>
 
 
 
