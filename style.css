@@ -770,15 +770,16 @@ h2 i {
 }
 
 
-/* =================================
-   LARGE QR
-================================= */
+/* Large QR */
 
 .qr-large {
 
-    width: min(82vw, 420px);
+    width: min(80vw, 400px);
 
-    height: min(82vw, 420px);
+    height: min(80vw, 400px);
+
+    max-width: 400px;
+    max-height: 400px;
 
     padding: 15px;
 
@@ -786,17 +787,12 @@ h2 i {
 
     border-radius: 20px;
 
-    object-fit: contain;
-
-    display: block;
-
     box-shadow:
-        0 0 50px rgba(0, 217, 255, 0.45);
+        0 0 40px rgba(0, 217, 255, 0.35);
 
     animation: qrZoom 0.25s ease;
+
 }
-
-
 /* =================================
    CLOSE BUTTON
 ================================= */
