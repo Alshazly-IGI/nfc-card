@@ -691,3 +691,20 @@ footer {
 .nfc-btn i {
     color: white;
 }
+.nfc-btn {
+    background: #173863;
+    color: white !important;
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+}
+
+.nfc-btn i {
+    color: white;
+}
+
+.nfc-btn:hover {
+    background: #1d4773;
+    transform: translateY(-2px);
+}
