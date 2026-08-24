@@ -324,45 +324,56 @@ h2 i {
 ========================= */
 
 .skills {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    justify-content: center;
-
-    gap: 9px;
-
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 10px;
 }
-
 
 .skills span {
+    display: flex;
+    align-items: center;
+    gap: 9px;
 
-    background: #173863;
+    padding: 13px 12px;
 
-    border: 1px solid rgba(0, 217, 255, 0.15);
+    background: linear-gradient(
+        135deg,
+        #173863,
+        #122d50
+    );
 
-    color: #d7e7f5;
+    border: 1px solid rgba(0, 217, 255, 0.12);
 
-    padding: 8px 13px;
+    border-radius: 12px;
 
-    border-radius: 20px;
+    color: #dceaf5;
 
     font-size: 13px;
+    font-weight: 500;
 
-    transition: 0.3s;
+    text-align: left;
 
+    transition: all 0.3s ease;
 }
 
+.skills span i {
+    color: #00d9ff;
+    font-size: 16px;
+    min-width: 20px;
+    text-align: center;
+}
 
 .skills span:hover {
+    transform: translateY(-3px);
 
-    border-color: #00d9ff;
+    border-color: rgba(0, 217, 255, 0.5);
+
+    box-shadow:
+        0 8px 20px rgba(0, 217, 255, 0.12);
 
     color: #00d9ff;
-
 }
-
 
 /* =========================
    PROJECTS
