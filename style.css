@@ -651,3 +651,17 @@ footer {
     }
 
 }
+.nfc-btn {
+    background: #173863;
+    color: white !important;
+    border: 1px solid rgba(0, 217, 255, 0.3);
+}
+
+.nfc-btn i {
+    color: #00d9ff;
+}
+
+.nfc-btn:hover {
+    background: #1d4773;
+    color: white !important;
+}
