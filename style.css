@@ -117,7 +117,7 @@ body {
     object-fit: cover;
 
     object-position:
-        center center;
+        center center -2%;
 
     border-radius: 50%;
 
