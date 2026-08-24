@@ -290,19 +290,31 @@ h3 {
 }
 
 
+/* Save Contact */
+
 .primary-btn {
 
-    background: var(--primary);
+    background:
+        var(--primary);
 
-    color: #000000;
+    color:
+        #000000;
+
+    border:
+        1px solid
+        var(--primary);
 }
 
 
+/* Download CV */
+
 .secondary-btn {
 
-    background: var(--button-dark);
+    background:
+        var(--button-dark);
 
-    color: var(--text-main);
+    color:
+        var(--text-main);
 
     border:
         1px solid
@@ -359,9 +371,11 @@ h3 {
 
     border-radius: 50%;
 
-    background: var(--social-bg);
+    background:
+        var(--social-bg);
 
-    color: var(--text-main);
+    color:
+        var(--text-main);
 
     font-size: 20px;
 
@@ -378,7 +392,8 @@ h3 {
 
 .social a:hover {
 
-    color: var(--primary);
+    color:
+        var(--primary);
 
     transform:
         translateY(-4px);
@@ -413,7 +428,8 @@ h2 {
 
     gap: 9px;
 
-    color: var(--primary);
+    color:
+        var(--primary);
 
     font-size: 21px;
 
@@ -445,7 +461,8 @@ h2 i {
 
 .about-content > p {
 
-    color: var(--text-secondary);
+    color:
+        var(--text-secondary);
 
     font-size: 14px;
 
@@ -457,7 +474,8 @@ h2 i {
 
 .about-content strong {
 
-    color: var(--text-main);
+    color:
+        var(--text-main);
 
     font-weight: 600;
 }
@@ -479,7 +497,8 @@ h2 i {
 
     margin-bottom: 14px;
 
-    color: var(--primary);
+    color:
+        var(--primary);
 
     font-size: 15px;
 
@@ -526,7 +545,8 @@ h2 i {
 
     border-radius: 20px;
 
-    color: var(--text-secondary);
+    color:
+        var(--text-secondary);
 
     font-size: 12px;
 
@@ -537,7 +557,8 @@ h2 i {
 
 .interest-list span i {
 
-    color: var(--primary);
+    color:
+        var(--primary);
 
     font-size: 12px;
 }
@@ -551,7 +572,8 @@ h2 i {
     border-color:
         var(--border-hover);
 
-    color: var(--primary);
+    color:
+        var(--primary);
 
     box-shadow:
 
@@ -588,6 +610,7 @@ h2 i {
     padding: 13px 12px;
 
     background:
+
         linear-gradient(
             135deg,
             #1d1d1d,
@@ -600,7 +623,8 @@ h2 i {
 
     border-radius: 12px;
 
-    color: var(--text-secondary);
+    color:
+        var(--text-secondary);
 
     font-size: 13px;
 
@@ -615,7 +639,8 @@ h2 i {
 
 .skills span i {
 
-    color: var(--primary);
+    color:
+        var(--primary);
 
     font-size: 16px;
 
@@ -625,7 +650,9 @@ h2 i {
 }
 
 
-/* Excel Logo */
+/* =========================================================
+   EXCEL LOGO
+========================================================= */
 
 .skill-logo {
 
@@ -652,7 +679,8 @@ h2 i {
         0 8px 20px
         var(--primary-shadow);
 
-    color: var(--primary);
+    color:
+        var(--primary);
 }
 
 
@@ -688,7 +716,8 @@ h2 i {
 
     border-radius: 13px;
 
-    color: var(--text-secondary);
+    color:
+        var(--text-secondary);
 
     transition:
         0.3s;
@@ -697,7 +726,8 @@ h2 i {
 
 .project i {
 
-    color: var(--primary);
+    color:
+        var(--primary);
 
     font-size: 18px;
 
@@ -755,44 +785,57 @@ h2 i {
 
 
 /* =========================================================
-   QR
+   QR SECTION
 ========================================================= */
 
 .qr-section {
 
-    margin: 30px auto 20px;
+    margin:
+        30px auto 20px;
 
-    text-align: center;
+    text-align:
+        center;
 }
 
 
 .qr-section p {
 
-    color: var(--text-muted);
+    color:
+        var(--text-muted);
 
-    font-size: 12px;
+    font-size:
+        12px;
 
-    margin-bottom: 12px;
+    margin-bottom:
+        12px;
 }
 
 
 .qr-code {
 
-    width: 140px;
+    width:
+        140px;
 
-    height: 140px;
+    height:
+        140px;
 
-    padding: 8px;
+    padding:
+        8px;
 
-    background: white;
+    background:
+        white;
 
-    border-radius: 15px;
+    border-radius:
+        15px;
 
-    display: block;
+    display:
+        block;
 
-    margin: auto;
+    margin:
+        auto;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
     box-shadow:
         0 8px 25px
@@ -816,15 +859,20 @@ h2 i {
 
 .qr-modal {
 
-    display: none;
+    display:
+        none;
 
-    position: fixed;
+    position:
+        fixed;
 
-    inset: 0;
+    inset:
+        0;
 
-    width: 100%;
+    width:
+        100%;
 
-    height: 100%;
+    height:
+        100%;
 
     background:
         rgba(0, 0, 0, 0.88);
@@ -832,17 +880,101 @@ h2 i {
     backdrop-filter:
         blur(6px);
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    align-items: center;
+    align-items:
+        center;
 
-    z-index: 9999;
+    z-index:
+        9999;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 }
 
 
-/* Large QR */
+/* Show Modal */
+
+.qr-modal.show {
+
+    display:
+        flex;
+}
+
+
+/* =========================================================
+   QR CLOSE BUTTON
+========================================================= */
+
+.qr-close {
+
+    position:
+        absolute;
+
+    top:
+        25px;
+
+    right:
+        25px;
+
+    width:
+        45px;
+
+    height:
+        45px;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    color:
+        white;
+
+    font-size:
+        22px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    cursor:
+        pointer;
+
+    z-index:
+        10001;
+
+    transition:
+        all 0.3s ease;
+}
+
+
+.qr-close:hover {
+
+    background:
+        var(--primary);
+
+    color:
+        #000000;
+
+    transform:
+        rotate(90deg);
+}
+
+
+/* =========================================================
+   LARGE QR
+========================================================= */
 
 .qr-large {
 
@@ -852,15 +984,20 @@ h2 i {
     height:
         min(80vw, 400px);
 
-    max-width: 400px;
+    max-width:
+        400px;
 
-    max-height: 400px;
+    max-height:
+        400px;
 
-    padding: 15px;
+    padding:
+        15px;
 
-    background: white;
+    background:
+        white;
 
-    border-radius: 20px;
+    border-radius:
+        20px;
 
     box-shadow:
 
@@ -904,73 +1041,106 @@ h2 i {
 
 .share-buttons {
 
-    display: flex;
+    display:
+        flex;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    gap: 12px;
+    gap:
+        12px;
 
     margin:
         25px 0;
 
-    flex-wrap: wrap;
+    flex-wrap:
+        wrap;
 }
 
 
+/* =========================================================
+   SHARE CARD BUTTON
+========================================================= */
+
 .share-btn {
 
-    flex: 1;
+    flex:
+        1;
 
-    min-width: 160px;
+    min-width:
+        160px;
 
-    padding: 13px 16px;
+    padding:
+        13px 16px;
 
-    border-radius: 12px;
+    border-radius:
+        12px;
 
     background:
         var(--primary);
 
     color:
-        #000000 !important;
+        #000000;
 
     border:
         1px solid
         rgba(255,122,0,0.35);
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    font-family: inherit;
+    font-family:
+        inherit;
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    font-weight: 600;
+    font-weight:
+        600;
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    gap: 8px;
+    gap:
+        8px;
 
     transition:
         all 0.3s ease;
 }
 
 
+/* Share icon */
+
+.share-btn i {
+
+    color:
+        inherit;
+}
+
+
 /* =========================================================
-   NFC
+   NFC BUTTON
 ========================================================= */
 
 .nfc-btn {
 
-    flex: 1;
+    flex:
+        1;
 
-    min-width: 160px;
+    min-width:
+        160px;
 
-    padding: 13px 16px;
+    padding:
+        13px 16px;
 
-    border-radius: 12px;
+    border-radius:
+        12px;
 
     background:
         var(--button-dark);
@@ -982,33 +1152,45 @@ h2 i {
         1px solid
         var(--border);
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    font-family: inherit;
+    font-family:
+        inherit;
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    font-weight: 600;
+    font-weight:
+        600;
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    gap: 8px;
+    gap:
+        8px;
 
     transition:
         all 0.3s ease;
 }
 
 
-.share-btn i,
 .nfc-btn i {
 
-    color: inherit;
+    color:
+        inherit;
 }
 
+
+/* =========================================================
+   SHARE / NFC HOVER
+========================================================= */
 
 .share-btn:hover,
 .nfc-btn:hover {
@@ -1029,9 +1211,11 @@ h2 i {
 
 footer {
 
-    margin-top: 18px;
+    margin-top:
+        18px;
 
-    padding-top: 18px;
+    padding-top:
+        18px;
 
     border-top:
         1px solid
@@ -1040,9 +1224,11 @@ footer {
     color:
         var(--text-muted);
 
-    font-size: 12px;
+    font-size:
+        12px;
 
-    line-height: 1.6;
+    line-height:
+        1.6;
 }
 
 
@@ -1051,7 +1237,8 @@ footer i {
     color:
         var(--primary);
 
-    margin-right: 5px;
+    margin-right:
+        5px;
 }
 
 
@@ -1071,17 +1258,23 @@ footer i {
 
 .theme-switcher {
 
-    position: fixed;
+    position:
+        fixed;
 
-    top: 18px;
+    top:
+        18px;
 
-    right: 18px;
+    right:
+        18px;
 
-    display: flex;
+    display:
+        flex;
 
-    gap: 5px;
+    gap:
+        5px;
 
-    padding: 5px;
+    padding:
+        5px;
 
     background:
         rgba(20, 20, 20, 0.92);
@@ -1090,7 +1283,8 @@ footer i {
         1px solid
         var(--border);
 
-    border-radius: 30px;
+    border-radius:
+        30px;
 
     backdrop-filter:
         blur(10px);
@@ -1102,7 +1296,8 @@ footer i {
         0 8px 25px
         rgba(0, 0, 0, 0.35);
 
-    z-index: 10000;
+    z-index:
+        10000;
 
     transition:
         all 0.3s ease;
@@ -1111,28 +1306,38 @@ footer i {
 
 .theme-btn {
 
-    width: 38px;
+    width:
+        38px;
 
-    height: 38px;
+    height:
+        38px;
 
-    border: none;
+    border:
+        none;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
-    background: transparent;
+    background:
+        transparent;
 
     color:
         #999999;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    font-size: 16px;
+    font-size:
+        16px;
 
     transition:
         all 0.3s ease;
@@ -1171,26 +1376,35 @@ footer i {
 
 body.light-theme {
 
-    --primary: #12355b;
+    --primary:
+        #12355b;
 
-    --primary-hover: #174775;
+    --primary-hover:
+        #174775;
 
-    --bg-main: #eef1f4;
+    --bg-main:
+        #eef1f4;
 
-    --bg-secondary: #ffffff;
+    --bg-secondary:
+        #ffffff;
 
     --card-bg:
         rgba(255, 255, 255, 0.98);
 
-    --surface: #f0f2f4;
+    --surface:
+        #f0f2f4;
 
-    --surface-light: #e7eaed;
+    --surface-light:
+        #e7eaed;
 
-    --text-main: #17212b;
+    --text-main:
+        #17212b;
 
-    --text-secondary: #52616d;
+    --text-secondary:
+        #52616d;
 
-    --text-muted: #7a8791;
+    --text-muted:
+        #7a8791;
 
     --border:
         rgba(18, 53, 91, 0.16);
@@ -1205,13 +1419,14 @@ body.light-theme {
     --primary-shadow:
         rgba(18, 53, 91, 0.16);
 
-    --social-bg: #f1f3f5;
+    --social-bg:
+        #f1f3f5;
 
-    --button-dark: #f0f2f4;
+    --button-dark:
+        #f0f2f4;
 
     --footer-border:
         rgba(18, 53, 91, 0.12);
-
 
     background:
 
@@ -1287,10 +1502,14 @@ body.light-theme .primary-btn {
         var(--primary);
 
     color:
-        white;
+        #ffffff;
 }
 
-/*btn*/
+
+/* =========================================================
+   LIGHT SECONDARY BUTTON
+========================================================= */
+
 body.light-theme .secondary-btn {
 
     background:
@@ -1309,6 +1528,42 @@ body.light-theme .secondary-btn:hover {
 
     background:
         #dce2e7;
+}
+
+
+/* =========================================================
+   LIGHT SHARE CARD
+   Dark Blue background + White text
+========================================================= */
+
+body.light-theme .share-btn {
+
+    background:
+        #12355b;
+
+    color:
+        #ffffff !important;
+
+    border:
+        1px solid
+        #12355b;
+}
+
+
+body.light-theme .share-btn i {
+
+    color:
+        #ffffff;
+}
+
+
+body.light-theme .share-btn:hover {
+
+    background:
+        #174775;
+
+    color:
+        #ffffff !important;
 }
 
 
@@ -1555,7 +1810,7 @@ body.light-theme .theme-btn {
 body.light-theme .theme-btn:hover {
 
     color:
-        #ffffff;
+        #12355b;
 }
 
 
@@ -1565,7 +1820,7 @@ body.light-theme .theme-btn.active {
         #12355b;
 
     color:
-        white;
+        #ffffff;
 
     box-shadow:
         0 4px 12px
@@ -1617,21 +1872,25 @@ body.light-theme .qr-large {
 
     .photo {
 
-        width: 140px;
+        width:
+            140px;
 
-        height: 140px;
+        height:
+            140px;
     }
 
 
     h1 {
 
-        font-size: 29px;
+        font-size:
+            29px;
     }
 
 
     h3 {
 
-        font-size: 16px;
+        font-size:
+            16px;
     }
 
 
@@ -1644,23 +1903,28 @@ body.light-theme .qr-large {
 
     .btn {
 
-        width: 100%;
+        width:
+            100%;
     }
 
 
     .social {
 
-        gap: 10px;
+        gap:
+            10px;
     }
 
 
     .social a {
 
-        width: 38px;
+        width:
+            38px;
 
-        height: 38px;
+        height:
+            38px;
 
-        font-size: 18px;
+        font-size:
+            18px;
     }
 
 
@@ -1673,11 +1937,14 @@ body.light-theme .qr-large {
 
     .footer-photo img {
 
-        width: 100%;
+        width:
+            100%;
 
-        max-width: 300px;
+        max-width:
+            300px;
 
-        height: auto;
+        height:
+            auto;
     }
 
 
@@ -1691,47 +1958,60 @@ body.light-theme .qr-large {
     .share-btn,
     .nfc-btn {
 
-        width: 100%;
+        width:
+            100%;
     }
 
 
     .qr-large {
 
-        width: 82vw;
+        width:
+            82vw;
 
-        height: 82vw;
+        height:
+            82vw;
 
-        max-width: 380px;
+        max-width:
+            380px;
 
-        max-height: 380px;
+        max-height:
+            380px;
     }
 
 
     .qr-close {
 
-        top: 15px;
+        top:
+            15px;
 
-        right: 15px;
+        right:
+            15px;
     }
 
 
     .theme-switcher {
 
-        top: 10px;
+        top:
+            10px;
 
-        right: 10px;
+        right:
+            10px;
 
-        padding: 4px;
+        padding:
+            4px;
     }
 
 
     .theme-btn {
 
-        width: 34px;
+        width:
+            34px;
 
-        height: 34px;
+        height:
+            34px;
 
-        font-size: 14px;
+        font-size:
+            14px;
     }
 
 }
