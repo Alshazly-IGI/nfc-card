@@ -60,32 +60,43 @@ margin-bottom:20px;
 
 }
 
-.buttons{
-
-display:flex;
-
-justify-content:center;
-
-gap:15px;
-
-margin:25px 0;
-
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
+    flex-wrap: wrap;
 }
 
-.btn{
+.btn {
+    background: cyan;
+    padding: 12px 20px;
+    color: black;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
 
-background:cyan;
+    .card {
+        width: 100%;
+        padding: 25px 20px;
+    }
 
-padding:12px 20px;
+    .buttons {
+        flex-direction: column;
+    }
 
-color:black;
-
-border-radius:10px;
-
-text-decoration:none;
-
-font-weight:bold;
-
+    .btn {
+        width: 100%;
+    }
 }
 
 .social{
