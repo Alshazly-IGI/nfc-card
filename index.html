@@ -608,19 +608,9 @@
         </button>
 
 
-        <!--  -->
- <!--
-        <button type="button"
-                class="-btn"
-                onclick="share()">
+       
 
-            <i class="fa-solid fa-wifi"></i>
 
-            Share via 
-
-        </button>
-
--->
     </div>
 
 
@@ -737,7 +727,7 @@ async function shareCard() {
 
 
     const cardURL =
-        "https://alshazly-igi.github.io/-card/";
+        "https://alshazly-igi.github.io/nfc-card/";
 
 
     /* Mobile Share */
@@ -816,14 +806,14 @@ async function shareCard() {
 
 
 /* =================================
-   
+   NFC
 ================================= */
 
-async function share() {
+async function shareNFC() {
 
 
     /*
-        Web  works mainly on
+        Web NFC works mainly on
         supported Android browsers.
     */
 
@@ -833,7 +823,7 @@ async function share() {
 
         alert(
 
-            "Web  is not supported " +
+            "Web NFC is not supported " +
             "on this device/browser.\n\n" +
 
             "Please use Share Card or " +
@@ -864,7 +854,7 @@ async function share() {
                     recordType: "url",
 
                     data:
-                        "https://alshazly-igi.github.io/-card/"
+                        "https://alshazly-igi.github.io/nfc-card/"
 
                 }
 
@@ -874,7 +864,7 @@ async function share() {
 
 
         alert(
-            " tag written successfully!"
+            "NFC tag written successfully!"
         );
 
 
@@ -885,14 +875,14 @@ async function share() {
 
 
         console.error(
-            " Error:",
+            "NFC Error:",
             error
         );
 
 
         alert(
 
-            " Error:\n\n" +
+            "NFC Error:\n\n" +
             error.message
 
         );
@@ -914,7 +904,8 @@ function closeQR() {
     document.getElementById("qrModal").style.display = "none";
 }
 
-
+</script>
+    <script>
 
 
 </body>
