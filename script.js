@@ -1,13 +1,18 @@
 /* =========================================================
    NFC DIGITAL BUSINESS CARD
-   Multi-Client JavaScript
+   MULTI-CLIENT SYSTEM
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+
     initTheme();
+
     loadProfile();
+
     initQRModal();
+
     initShareButtons();
+
 });
 
 
@@ -16,16 +21,19 @@ document.addEventListener("DOMContentLoaded", () => {
 ========================================================= */
 
 const CONFIG = {
+
     jsonFile: "data/customers.json",
 
-    defaultProfile: {
-        id: "alshazly",
-        name: "Alshazly Altieb",
-        title: "Healthcare Data Analyst",
-        photo: "assets/profile.jpg",
-        cv: "assets/cv.pdf"
-    }
+    defaultProfile: "alshazly"
+
 };
+
+
+/* =========================================================
+   GLOBAL PROFILE
+========================================================= */
+
+window.currentProfile = null;
 
 
 /* =========================================================
@@ -34,9 +42,13 @@ const CONFIG = {
 
 function getProfileId() {
 
-    const params = new URLSearchParams(window.location.search);
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
     return params.get("id");
+
 }
 
 
@@ -46,85 +58,166 @@ function getProfileId() {
 
 async function loadProfile() {
 
-    const profileId = getProfileId();
+    const profileId =
+        getProfileId();
+
+    console.log(
+        "Profile ID:",
+        profileId
+    );
+
 
     try {
 
-        const response = await fetch(CONFIG.jsonFile, {
-            cache: "no-cache"
-        });
+        /* =============================================
+           LOAD JSON
+        ============================================= */
+
+        const response =
+            await fetch(
+                CONFIG.jsonFile,
+                {
+                    cache: "no-cache"
+                }
+            );
+
 
         if (!response.ok) {
+
             throw new Error(
-                `Unable to load ${CONFIG.jsonFile}`
+                `HTTP ${response.status} - ${CONFIG.jsonFile}`
             );
+
         }
 
-        const data = await response.json();
 
-        /*
-         * Support both:
-         *
-         * {
-         *   "clients": [...]
-         * }
-         *
-         * and:
-         *
-         * [...]
-         */
+        const data =
+            await response.json();
 
-        const profiles = Array.isArray(data)
-            ? data
-            : data.clients || data.profiles || [];
 
-        /*
-         * If no ID was provided,
-         * use the first profile or default profile.
-         */
+        console.log(
+            "Customers JSON:",
+            data
+        );
 
-        let profile;
 
-        if (profileId) {
+        /* =============================================
+           SUPPORT DIFFERENT JSON STRUCTURES
+        ============================================= */
 
-            profile = profiles.find(
+        let profiles = [];
+
+
+        if (Array.isArray(data)) {
+
+            profiles = data;
+
+        }
+
+        else if (
+            Array.isArray(data.customers)
+        ) {
+
+            profiles =
+                data.customers;
+
+        }
+
+        else if (
+            Array.isArray(data.clients)
+        ) {
+
+            profiles =
+                data.clients;
+
+        }
+
+        else if (
+            Array.isArray(data.profiles)
+        ) {
+
+            profiles =
+                data.profiles;
+
+        }
+
+
+        console.log(
+            "Profiles:",
+            profiles
+        );
+
+
+        /* =============================================
+           CHECK DATA
+        ============================================= */
+
+        if (
+            !Array.isArray(profiles) ||
+            profiles.length === 0
+        ) {
+
+            throw new Error(
+                "No customers found in JSON file"
+            );
+
+        }
+
+
+        /* =============================================
+           DETERMINE ID
+        ============================================= */
+
+        const selectedId =
+            profileId ||
+            CONFIG.defaultProfile;
+
+
+        /* =============================================
+           FIND PROFILE
+        ============================================= */
+
+        const profile =
+            profiles.find(
                 item =>
-                    String(item.id).toLowerCase() ===
-                    String(profileId).toLowerCase()
+                    String(item.id)
+                        .trim()
+                        .toLowerCase() ===
+                    String(selectedId)
+                        .trim()
+                        .toLowerCase()
             );
 
-        } else {
 
-            profile =
-                profiles.find(
-                    item =>
-                        String(item.id).toLowerCase() ===
-                        CONFIG.defaultProfile.id.toLowerCase()
-                ) ||
-                profiles[0];
-
-        }
+        console.log(
+            "Selected profile:",
+            profile
+        );
 
 
-        /* =================================================
+        /* =============================================
            PROFILE NOT FOUND
-        ================================================= */
+        ============================================= */
 
         if (!profile) {
 
             showProfileError(
-                "Profile not found"
+                `Profile "${selectedId}" not found`
             );
 
             return;
+
         }
 
 
-        /* =================================================
-           UPDATE PAGE
-        ================================================= */
+        /* =============================================
+           UPDATE PROFILE
+        ============================================= */
 
-        updateProfile(profile);
+        updateProfile(
+            profile
+        );
+
 
     }
 
@@ -135,10 +228,13 @@ async function loadProfile() {
             error
         );
 
+
         showProfileError(
             "Unable to load profile"
         );
+
     }
+
 }
 
 
@@ -148,25 +244,40 @@ async function loadProfile() {
 
 function updateProfile(profile) {
 
-    /* -----------------------------------------------------
-       Save profile globally
-    ----------------------------------------------------- */
+    /* =====================================================
+       SAVE PROFILE
+    ===================================================== */
 
-    window.currentProfile = profile;
+    window.currentProfile =
+        profile;
 
 
-    /* -----------------------------------------------------
-       PAGE TITLE
-    ----------------------------------------------------- */
+    /* =====================================================
+       BASIC INFORMATION
+    ===================================================== */
 
     const name =
         profile.name ||
+        profile.fullName ||
         "Digital Business Card";
+
 
     const job =
         profile.title ||
         profile.job ||
+        profile.position ||
         "";
+
+
+    const description =
+        profile.description ||
+        profile.bio ||
+        "";
+
+
+    /* =====================================================
+       PAGE TITLE
+    ===================================================== */
 
     document.title =
         job
@@ -174,39 +285,19 @@ function updateProfile(profile) {
             : name;
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        META DESCRIPTION
-    ----------------------------------------------------- */
+    ===================================================== */
 
-    const description =
-        profile.description ||
-        `${name}${job ? " | " + job : ""}`;
-
-    let metaDescription =
-        document.querySelector(
-            'meta[name="description"]'
-        );
-
-    if (!metaDescription) {
-
-        metaDescription =
-            document.createElement("meta");
-
-        metaDescription.name =
-            "description";
-
-        document.head.appendChild(
-            metaDescription
-        );
-    }
-
-    metaDescription.content =
-        description;
+    updateMetaDescription(
+        description ||
+        `${name}${job ? " | " + job : ""}`
+    );
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        NAME
-    ----------------------------------------------------- */
+    ===================================================== */
 
     setText(
         [
@@ -219,9 +310,9 @@ function updateProfile(profile) {
     );
 
 
-    /* -----------------------------------------------------
-       JOB / TITLE
-    ----------------------------------------------------- */
+    /* =====================================================
+       TITLE
+    ===================================================== */
 
     setText(
         [
@@ -235,112 +326,129 @@ function updateProfile(profile) {
     );
 
 
-    /* -----------------------------------------------------
-       DESCRIPTION
-    ----------------------------------------------------- */
+    /* =====================================================
+       BIO
+    ===================================================== */
 
-    if (profile.bio || profile.description) {
-
-        setText(
-            [
-                "#profileBio",
-                "#bio",
-                ".profile-bio",
-                ".bio"
-            ],
-            profile.bio ||
-            profile.description
-        );
-    }
+    setText(
+        [
+            "#profileBio",
+            "#bio",
+            ".profile-bio",
+            ".bio"
+        ],
+        description
+    );
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        PROFILE IMAGE
-    ----------------------------------------------------- */
+    ===================================================== */
 
-    if (profile.photo || profile.image) {
+    const image =
+        profile.photo ||
+        profile.image ||
+        profile.profileImage;
 
-        const image =
-            profile.photo ||
-            profile.image;
+
+    if (image) {
 
         document
             .querySelectorAll(
-                ".photo, .profile-photo, #profilePhoto"
+                "#profilePhoto, .profile-photo, .photo"
             )
-            .forEach(img => {
+            .forEach(
+                img => {
 
-                if (img.tagName === "IMG") {
+                    if (
+                        img.tagName === "IMG"
+                    ) {
 
-                    img.src = image;
+                        img.src =
+                            image;
 
-                    img.alt =
-                        `${name} profile photo`;
+                        img.alt =
+                            `${name} profile photo`;
+
+                    }
 
                 }
-            });
+            );
+
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        PHONE
-    ----------------------------------------------------- */
+    ===================================================== */
 
     if (profile.phone) {
 
         updatePhone(
             profile.phone
         );
+
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        EMAIL
-    ----------------------------------------------------- */
+    ===================================================== */
 
     if (profile.email) {
 
         updateEmail(
             profile.email
         );
+
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        WHATSAPP
-    ----------------------------------------------------- */
+    ===================================================== */
 
-    if (profile.whatsapp) {
+    const whatsapp =
+        profile.whatsapp ||
+        profile.phone;
+
+
+    if (whatsapp) {
 
         updateWhatsApp(
-            profile.whatsapp
+            whatsapp
         );
+
     }
 
 
-    /* -----------------------------------------------------
-       SOCIAL LINKS
-    ----------------------------------------------------- */
+    /* =====================================================
+       SOCIAL MEDIA
+    ===================================================== */
 
     updateSocialLink(
         "linkedin",
         profile.linkedin
     );
 
+
     updateSocialLink(
         "github",
         profile.github
     );
+
 
     updateSocialLink(
         "facebook",
         profile.facebook
     );
 
+
     updateSocialLink(
         "instagram",
         profile.instagram
     );
+
 
     updateSocialLink(
         "twitter",
@@ -348,57 +456,102 @@ function updateProfile(profile) {
     );
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        CV
-    ----------------------------------------------------- */
+    ===================================================== */
 
     if (profile.cv) {
 
         updateCV(
             profile.cv
         );
+
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        QR CODE
-    ----------------------------------------------------- */
+    ===================================================== */
 
     updateQRCode(
         profile
     );
 
 
-    /* -----------------------------------------------------
-       CONTACT DATA
-    ----------------------------------------------------- */
+    /* =====================================================
+       SAVE CONTACT
+    ===================================================== */
 
     prepareContactData(
         profile
     );
 
 
-    /* -----------------------------------------------------
-       UPDATE SHARE DATA
-    ----------------------------------------------------- */
+    /* =====================================================
+       SHARE DATA
+    ===================================================== */
 
     updateShareData(
         profile
     );
 
 
-    /* -----------------------------------------------------
-       BODY
-    ----------------------------------------------------- */
+    /* =====================================================
+       PROFILE LOADED
+    ===================================================== */
 
     document.body.classList.add(
         "profile-loaded"
     );
+
+
+    console.log(
+        "Profile loaded successfully:",
+        name
+    );
+
 }
 
 
 /* =========================================================
-   SAFE TEXT UPDATE
+   META DESCRIPTION
+========================================================= */
+
+function updateMetaDescription(
+    description
+) {
+
+    let meta =
+        document.querySelector(
+            'meta[name="description"]'
+        );
+
+
+    if (!meta) {
+
+        meta =
+            document.createElement(
+                "meta"
+            );
+
+        meta.name =
+            "description";
+
+        document.head.appendChild(
+            meta
+        );
+
+    }
+
+
+    meta.content =
+        description;
+
+}
+
+
+/* =========================================================
+   SET TEXT
 ========================================================= */
 
 function setText(
@@ -406,17 +559,25 @@ function setText(
     value
 ) {
 
-    selectors.forEach(selector => {
+    selectors.forEach(
+        selector => {
 
-        document
-            .querySelectorAll(selector)
-            .forEach(element => {
+            document
+                .querySelectorAll(
+                    selector
+                )
+                .forEach(
+                    element => {
 
-                element.textContent =
-                    value || "";
+                        element.textContent =
+                            value || "";
 
-            });
-    });
+                    }
+                );
+
+        }
+    );
+
 }
 
 
@@ -424,29 +585,31 @@ function setText(
    PHONE
 ========================================================= */
 
-function updatePhone(phone) {
+function updatePhone(
+    phone
+) {
 
     const cleanPhone =
         String(phone)
-            .replace(/[^\d+]/g, "");
+            .replace(
+                /[^\d+]/g,
+                ""
+            );
+
 
     document
         .querySelectorAll(
-            'a[href^="tel:"], .phone-link'
+            ".phone-link"
         )
-        .forEach(link => {
+        .forEach(
+            link => {
 
-            link.href =
-                `tel:${cleanPhone}`;
+                link.href =
+                    `tel:${cleanPhone}`;
 
-            if (
-                !link.textContent.trim()
-            ) {
-
-                link.textContent =
-                    phone;
             }
-        });
+        );
+
 }
 
 
@@ -454,25 +617,23 @@ function updatePhone(phone) {
    EMAIL
 ========================================================= */
 
-function updateEmail(email) {
+function updateEmail(
+    email
+) {
 
     document
         .querySelectorAll(
-            'a[href^="mailto:"], .email-link'
+            ".email-link"
         )
-        .forEach(link => {
+        .forEach(
+            link => {
 
-            link.href =
-                `mailto:${email}`;
+                link.href =
+                    `mailto:${email}`;
 
-            if (
-                !link.textContent.trim()
-            ) {
-
-                link.textContent =
-                    email;
             }
-        });
+        );
+
 }
 
 
@@ -480,27 +641,37 @@ function updateEmail(email) {
    WHATSAPP
 ========================================================= */
 
-function updateWhatsApp(phone) {
+function updateWhatsApp(
+    phone
+) {
 
     const cleanPhone =
         String(phone)
-            .replace(/\D/g, "");
+            .replace(
+                /\D/g,
+                ""
+            );
+
 
     document
         .querySelectorAll(
             ".whatsapp-link"
         )
-        .forEach(link => {
+        .forEach(
+            link => {
 
-            link.href =
-                `https://wa.me/${cleanPhone}`;
+                link.href =
+                    `https://wa.me/${cleanPhone}`;
 
-            link.target =
-                "_blank";
+                link.target =
+                    "_blank";
 
-            link.rel =
-                "noopener noreferrer";
-        });
+                link.rel =
+                    "noopener noreferrer";
+
+            }
+        );
+
 }
 
 
@@ -513,22 +684,68 @@ function updateSocialLink(
     url
 ) {
 
-    if (!url) return;
+    const selectors = [
 
-    document
-        .querySelectorAll(
-            `.${platform}-link, #${platform}Link`
-        )
-        .forEach(link => {
+        `.${platform}-link`,
 
-            link.href = url;
+        `#${platform}Link`
+
+    ];
+
+
+    const elements = [];
+
+
+    selectors.forEach(
+        selector => {
+
+            document
+                .querySelectorAll(
+                    selector
+                )
+                .forEach(
+                    element => {
+
+                        elements.push(
+                            element
+                        );
+
+                    }
+                );
+
+        }
+    );
+
+
+    elements.forEach(
+        link => {
+
+            if (!url) {
+
+                link.style.display =
+                    "none";
+
+                return;
+
+            }
+
+
+            link.style.display =
+                "";
+
+
+            link.href =
+                url;
 
             link.target =
                 "_blank";
 
             link.rel =
                 "noopener noreferrer";
-        });
+
+        }
+    );
+
 }
 
 
@@ -536,22 +753,29 @@ function updateSocialLink(
    CV
 ========================================================= */
 
-function updateCV(cv) {
+function updateCV(
+    cv
+) {
 
     document
         .querySelectorAll(
             ".cv-link, #cvLink"
         )
-        .forEach(link => {
+        .forEach(
+            link => {
 
-            link.href = cv;
+                link.href =
+                    cv;
 
-            link.target =
-                "_blank";
+                link.target =
+                    "_blank";
 
-            link.rel =
-                "noopener noreferrer";
-        });
+                link.rel =
+                    "noopener noreferrer";
+
+            }
+        );
+
 }
 
 
@@ -559,54 +783,101 @@ function updateCV(cv) {
    QR CODE
 ========================================================= */
 
-function updateQRCode(profile) {
+function updateQRCode(
+    profile
+) {
 
     const currentURL =
         window.location.href;
+
 
     document
         .querySelectorAll(
             ".qr-code"
         )
-        .forEach(img => {
+        .forEach(
+            img => {
 
-            /*
-             * If profile has a specific QR image,
-             * use it.
-             */
+                /*
+                 * If QR image exists
+                 */
 
-            if (profile.qr) {
+                if (profile.qr) {
 
-                img.src =
-                    profile.qr;
+                    img.src =
+                        profile.qr;
+
+                }
+
+                /*
+                 * Otherwise generate QR
+                 */
+
+                else {
+
+                    img.src =
+                        "https://api.qrserver.com/v1/create-qr-code/" +
+                        "?size=500x500&data=" +
+                        encodeURIComponent(
+                            currentURL
+                        );
+
+                }
+
+
+                img.alt =
+                    `${profile.name} QR Code`;
 
             }
+        );
 
-            /*
-             * Otherwise generate QR
-             * from current profile URL.
-             */
-
-            else {
-
-                img.src =
-                    "https://api.qrserver.com/v1/create-qr-code/" +
-                    "?size=500x500&data=" +
-                    encodeURIComponent(
-                        currentURL
-                    );
-            }
-
-            img.alt =
-                `${profile.name} QR Code`;
-        });
 }
 
 
 /* =========================================================
- 
+   QR MODAL
+========================================================= */
+
+function initQRModal() {
+
+    const modal =
+        document.getElementById(
+            "qrModal"
+        );
+
+
+    if (!modal) {
+
+        console.warn(
+            "QR modal not found"
+        );
+
+        return;
+
+    }
+
+
+    const qrImage =
+        document.querySelector(
+            ".qr-code"
+        );
+
+
+    const largeQR =
+        document.querySelector(
+            ".qr-large"
+        );
+
+
+    const closeButton =
+        document.querySelector(
+            ".qr-close"
+        );
+
+
+    /* =====================================================
        OPEN QR
-    ----------------------------------------------------- */
+    ===================================================== */
 
     if (qrImage) {
 
@@ -618,21 +889,31 @@ function updateQRCode(profile) {
 
                     largeQR.src =
                         qrImage.src;
+
                 }
+
 
                 modal.style.display =
                     "flex";
 
+
+                modal.classList.add(
+                    "active"
+                );
+
+
                 document.body.style.overflow =
                     "hidden";
+
             }
         );
+
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        CLOSE BUTTON
-    ----------------------------------------------------- */
+    ===================================================== */
 
     if (closeButton) {
 
@@ -640,12 +921,13 @@ function updateQRCode(profile) {
             "click",
             closeQR
         );
+
     }
 
 
-    /* -----------------------------------------------------
-       CLICK BACKGROUND
-    ----------------------------------------------------- */
+    /* =====================================================
+       CLICK OUTSIDE
+    ===================================================== */
 
     modal.addEventListener(
         "click",
@@ -656,14 +938,16 @@ function updateQRCode(profile) {
             ) {
 
                 closeQR();
+
             }
+
         }
     );
 
 
-    /* -----------------------------------------------------
-       ESC KEY
-    ----------------------------------------------------- */
+    /* =====================================================
+       ESC
+    ===================================================== */
 
     document.addEventListener(
         "keydown",
@@ -674,9 +958,12 @@ function updateQRCode(profile) {
             ) {
 
                 closeQR();
+
             }
+
         }
     );
+
 }
 
 
@@ -691,13 +978,22 @@ function closeQR() {
             "qrModal"
         );
 
+
     if (!modal) return;
+
 
     modal.style.display =
         "none";
 
+
+    modal.classList.remove(
+        "active"
+    );
+
+
     document.body.style.overflow =
         "";
+
 }
 
 
@@ -711,26 +1007,33 @@ function initShareButtons() {
         .querySelectorAll(
             ".share-card"
         )
-        .forEach(button => {
+        .forEach(
+            button => {
 
-            button.addEventListener(
-                "click",
-                shareCard
-            );
-        });
+                button.addEventListener(
+                    "click",
+                    shareCard
+                );
+
+            }
+        );
 
 
     document
         .querySelectorAll(
             ".share-nfc"
         )
-        .forEach(button => {
+        .forEach(
+            button => {
 
-            button.addEventListener(
-                "click",
-                shareNFC
-            );
-        });
+                button.addEventListener(
+                    "click",
+                    shareNFC
+                );
+
+            }
+        );
+
 }
 
 
@@ -743,16 +1046,28 @@ async function shareCard() {
     const profile =
         window.currentProfile;
 
-    if (!profile) return;
+
+    if (!profile) {
+
+        showMessage(
+            "Profile is not loaded"
+        );
+
+        return;
+
+    }
+
 
     const name =
         profile.name ||
         "Digital Business Card";
 
+
     const title =
         profile.title ||
         profile.job ||
         "";
+
 
     const shareData = {
 
@@ -766,18 +1081,16 @@ async function shareCard() {
 
         url:
             window.location.href
+
     };
 
 
-    /* -----------------------------------------------------
-       Web Share API
-    ----------------------------------------------------- */
+    /* =====================================================
+       WEB SHARE
+    ===================================================== */
 
     if (
-        navigator.share &&
-        navigator.canShare
-            ? navigator.canShare(shareData)
-            : true
+        navigator.share
     ) {
 
         try {
@@ -789,6 +1102,7 @@ async function shareCard() {
             return;
 
         }
+
         catch (error) {
 
             if (
@@ -797,22 +1111,43 @@ async function shareCard() {
             ) {
 
                 return;
+
             }
+
         }
+
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        FALLBACK
-    ----------------------------------------------------- */
+    ===================================================== */
 
-    copyToClipboard(
-        window.location.href
-    );
+    try {
 
-    showMessage(
-        "Profile link copied"
-    );
+        await copyToClipboard(
+            window.location.href
+        );
+
+
+        showMessage(
+            "Profile link copied"
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            error
+        );
+
+        showMessage(
+            "Unable to share profile"
+        );
+
+    }
+
 }
 
 
@@ -822,22 +1157,12 @@ async function shareCard() {
 
 async function shareNFC() {
 
-    const url =
-        window.location.href;
-
-    /*
-     * NFC should contain only the URL.
-     *
-     * Example:
-     *
-     * https://alshazly-igi.github.io/nfc-card/?id=alshazly
-     */
-
     try {
 
         await copyToClipboard(
-            url
+            window.location.href
         );
+
 
         showMessage(
             "NFC profile link copied"
@@ -847,12 +1172,17 @@ async function shareNFC() {
 
     catch (error) {
 
-        console.error(error);
+        console.error(
+            error
+        );
+
 
         showMessage(
-            "Unable to copy NFC link"
+            "Unable to copy link"
         );
+
     }
+
 }
 
 
@@ -874,40 +1204,46 @@ async function copyToClipboard(
         );
 
         return;
+
     }
 
-
-    /* -----------------------------------------------------
-       Fallback
-    ----------------------------------------------------- */
 
     const textarea =
         document.createElement(
             "textarea"
         );
 
+
     textarea.value =
         text;
+
 
     textarea.style.position =
         "fixed";
 
-    textarea.style.opacity =
-        "0";
+
+    textarea.style.left =
+        "-9999px";
+
 
     document.body.appendChild(
         textarea
     );
 
+
     textarea.focus();
 
+
     textarea.select();
+
 
     document.execCommand(
         "copy"
     );
 
+
     textarea.remove();
+
 }
 
 
@@ -919,25 +1255,30 @@ function updateShareData(
     profile
 ) {
 
-    const shareTitle =
+    const title =
         profile.title ||
         profile.job ||
         "";
+
 
     document
         .querySelectorAll(
             "[data-share-title]"
         )
-        .forEach(element => {
+        .forEach(
+            element => {
 
-            element.dataset.shareTitle =
-                `${profile.name} | ${shareTitle}`;
-        });
+                element.dataset.shareTitle =
+                    `${profile.name} | ${title}`;
+
+            }
+        );
+
 }
 
 
 /* =========================================================
-   VCARD / SAVE CONTACT
+   SAVE CONTACT
 ========================================================= */
 
 function prepareContactData(
@@ -948,18 +1289,41 @@ function prepareContactData(
         .querySelectorAll(
             ".save-contact"
         )
-        .forEach(button => {
+        .forEach(
+            button => {
 
-            button.addEventListener(
-                "click",
-                () => {
+                /*
+                 * Prevent duplicate events
+                 */
 
-                    createVCard(
-                        profile
-                    );
+                if (
+                    button.dataset.contactReady ===
+                    "true"
+                ) {
+
+                    return;
+
                 }
-            );
-        });
+
+
+                button.dataset.contactReady =
+                    "true";
+
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        createVCard(
+                            profile
+                        );
+
+                    }
+                );
+
+            }
+        );
+
 }
 
 
@@ -972,23 +1336,31 @@ function createVCard(
 ) {
 
     const name =
-        profile.name || "";
+        profile.name ||
+        "";
+
 
     const phone =
-        profile.phone || "";
+        profile.phone ||
+        "";
+
 
     const email =
-        profile.email || "";
+        profile.email ||
+        "";
 
-    const organization =
+
+    const company =
         profile.company ||
         profile.organization ||
         "";
+
 
     const job =
         profile.title ||
         profile.job ||
         "";
+
 
     const website =
         window.location.href;
@@ -999,11 +1371,11 @@ function createVCard(
 VERSION:3.0
 FN:${escapeVCard(name)}
 N:${escapeVCard(name)};;;;
-ORG:${escapeVCard(organization)}
+ORG:${escapeVCard(company)}
 TITLE:${escapeVCard(job)}
 TEL;TYPE=CELL:${escapeVCard(phone)}
 EMAIL;TYPE=INTERNET:${escapeVCard(email)}
-URL:${website}
+URL:${escapeVCard(website)}
 END:VCARD`;
 
 
@@ -1028,8 +1400,10 @@ END:VCARD`;
             "a"
         );
 
+
     link.href =
         url;
+
 
     link.download =
         `${sanitizeFileName(name)}.vcf`;
@@ -1039,7 +1413,9 @@ END:VCARD`;
         link
     );
 
+
     link.click();
+
 
     link.remove();
 
@@ -1047,40 +1423,65 @@ END:VCARD`;
     URL.revokeObjectURL(
         url
     );
+
+
+    showMessage(
+        "Contact file created"
+    );
+
 }
 
 
 /* =========================================================
-   ESCAPE VCARD
+   VCARD ESCAPE
 ========================================================= */
 
 function escapeVCard(
     value
 ) {
 
-    return String(value || "")
-        .replace(/\\/g, "\\\\")
-        .replace(/\n/g, "\\n")
-        .replace(/;/g, "\\;")
-        .replace(/,/g, "\\,");
+    return String(
+        value || ""
+    )
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+        .replace(
+            /\n/g,
+            "\\n"
+        )
+        .replace(
+            /;/g,
+            "\\;"
+        )
+        .replace(
+            /,/g,
+            "\\,"
+        );
+
 }
 
 
 /* =========================================================
-   FILE NAME
+   SANITIZE FILE NAME
 ========================================================= */
 
 function sanitizeFileName(
     name
 ) {
 
-    return String(name)
+    return String(
+        name || "contact"
+    )
         .replace(
             /[<>:"/\\|?*]+/g,
             ""
         )
         .trim()
-        || "contact";
+        ||
+        "contact";
+
 }
 
 
@@ -1096,28 +1497,25 @@ function initTheme() {
         );
 
 
-    if (savedTheme) {
-
-        setTheme(
-            savedTheme
-        );
-
-    } else {
-
-        setTheme(
-            "dark"
-        );
-    }
+    const initialTheme =
+        savedTheme ||
+        "dark";
 
 
-    /* -----------------------------------------------------
-       Dark button
-    ----------------------------------------------------- */
+    setTheme(
+        initialTheme
+    );
+
+
+    /* =====================================================
+       DARK BUTTON
+    ===================================================== */
 
     const darkButton =
         document.getElementById(
             "darkThemeBtn"
         );
+
 
     if (darkButton) {
 
@@ -1128,19 +1526,22 @@ function initTheme() {
                 setTheme(
                     "dark"
                 );
+
             }
         );
+
     }
 
 
-    /* -----------------------------------------------------
-       Light button
-    ----------------------------------------------------- */
+    /* =====================================================
+       LIGHT BUTTON
+    ===================================================== */
 
     const lightButton =
         document.getElementById(
             "lightThemeBtn"
         );
+
 
     if (lightButton) {
 
@@ -1151,9 +1552,12 @@ function initTheme() {
                 setTheme(
                     "light"
                 );
+
             }
         );
+
     }
+
 }
 
 
@@ -1165,15 +1569,24 @@ function setTheme(
     theme
 ) {
 
-    const body =
-        document.body;
+    if (
+        theme !== "dark" &&
+        theme !== "light"
+    ) {
 
-    body.classList.remove(
+        theme =
+            "dark";
+
+    }
+
+
+    document.body.classList.remove(
         "dark",
         "light"
     );
 
-    body.classList.add(
+
+    document.body.classList.add(
         theme
     );
 
@@ -1194,11 +1607,12 @@ function setTheme(
     updateThemeButtons(
         theme
     );
+
 }
 
 
 /* =========================================================
-   THEME BUTTON STATE
+   THEME BUTTONS
 ========================================================= */
 
 function updateThemeButtons(
@@ -1209,6 +1623,7 @@ function updateThemeButtons(
         document.getElementById(
             "darkThemeBtn"
         );
+
 
     const lightButton =
         document.getElementById(
@@ -1222,6 +1637,7 @@ function updateThemeButtons(
             "active",
             theme === "dark"
         );
+
     }
 
 
@@ -1231,7 +1647,9 @@ function updateThemeButtons(
             "active",
             theme === "light"
         );
+
     }
+
 }
 
 
@@ -1252,29 +1670,52 @@ function showProfileError(
         "Profile Not Found";
 
 
-    const card =
-        document.querySelector(
-            ".card"
+    const name =
+        document.getElementById(
+            "profileName"
         );
 
 
-    if (card) {
+    const title =
+        document.getElementById(
+            "profileTitle"
+        );
 
-        card.innerHTML = `
-            <div class="profile-error">
-                <i class="fa-solid fa-circle-exclamation"></i>
-                <h2>${message}</h2>
-                <p>
-                    Please check the profile ID.
-                </p>
-            </div>
-        `;
+
+    if (name) {
+
+        name.textContent =
+            "Profile Not Found";
+
     }
+
+
+    if (title) {
+
+        title.textContent =
+            message;
+
+    }
+
+
+    const bio =
+        document.getElementById(
+            "profileBio"
+        );
+
+
+    if (bio) {
+
+        bio.textContent =
+            "Please check the profile ID.";
+
+    }
+
 }
 
 
 /* =========================================================
-   MESSAGE / TOAST
+   TOAST MESSAGE
 ========================================================= */
 
 function showMessage(
@@ -1294,20 +1735,25 @@ function showMessage(
                 "div"
             );
 
+
         toast.id =
             "toastMessage";
+
 
         toast.className =
             "toast-message";
 
+
         document.body.appendChild(
             toast
         );
+
     }
 
 
     toast.textContent =
         message;
+
 
     toast.classList.add(
         "show"
@@ -1330,27 +1776,29 @@ function showMessage(
             },
             2500
         );
+
 }
 
 
 /* =========================================================
    GLOBAL FUNCTIONS
-   =========================================================
-   These allow existing HTML onclick=""
-   attributes to continue working.
 ========================================================= */
 
 window.setTheme =
     setTheme;
 
+
 window.closeQR =
     closeQR;
+
 
 window.shareCard =
     shareCard;
 
+
 window.shareNFC =
     shareNFC;
+
 
 window.createVCard =
     createVCard;
