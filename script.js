@@ -58,29 +58,22 @@ function getProfileId() {
 
 async function loadProfile() {
 
-    const profileId =
-        getProfileId();
+    const profileId = getProfileId();
 
-    console.log(
-        "Profile ID:",
-        profileId
-    );
-
+    console.log("Profile ID:", profileId);
 
     try {
 
-        /* =============================================
+        /* =================================================
            LOAD JSON
-        ============================================= */
+        ================================================= */
 
-        const response =
-            await fetch(
-                CONFIG.jsonFile,
-                {
-                    cache: "no-cache"
-                }
-            );
-
+        const response = await fetch(
+            CONFIG.jsonFile,
+            {
+                cache: "no-cache"
+            }
+        );
 
         if (!response.ok) {
 
@@ -91,9 +84,7 @@ async function loadProfile() {
         }
 
 
-        const data =
-            await response.json();
-
+        const data = await response.json();
 
         console.log(
             "Customers JSON:",
@@ -101,103 +92,63 @@ async function loadProfile() {
         );
 
 
-        /* =============================================
-           SUPPORT DIFFERENT JSON STRUCTURES
-        ============================================= */
-
-        let profiles = [];
-
-
-        if (Array.isArray(data)) {
-
-            profiles = data;
-
-        }
-
-        else if (
-            Array.isArray(data.customers)
-        ) {
-
-            profiles =
-                data.customers;
-
-        }
-
-        else if (
-            Array.isArray(data.clients)
-        ) {
-
-            profiles =
-                data.clients;
-
-        }
-
-        else if (
-            Array.isArray(data.profiles)
-        ) {
-
-            profiles =
-                data.profiles;
-
-        }
-
-
-        console.log(
-            "Profiles:",
-            profiles
-        );
-
-
-        /* =============================================
-           CHECK DATA
-        ============================================= */
-
-        if (
-            !Array.isArray(profiles) ||
-            profiles.length === 0
-        ) {
-
-            throw new Error(
-                "No customers found in JSON file"
-            );
-
-        }
-
-
-        /* =============================================
-           DETERMINE ID
-        ============================================= */
+        /* =================================================
+           GET PROFILE ID
+        ================================================= */
 
         const selectedId =
             profileId ||
             CONFIG.defaultProfile;
 
 
-        /* =============================================
-           FIND PROFILE
-        ============================================= */
+        /* =================================================
+           FIND CUSTOMER
+           
+           Your JSON structure is:
 
-        const profile =
-            profiles.find(
-                item =>
-                    String(item.id)
-                        .trim()
-                        .toLowerCase() ===
-                    String(selectedId)
-                        .trim()
-                        .toLowerCase()
-            );
+           {
+               "alshazly": {...},
+               "ahmed": {...}
+           }
+        ================================================= */
 
-
-        console.log(
-            "Selected profile:",
-            profile
-        );
+        let profile =
+            data[selectedId];
 
 
-        /* =============================================
+        /* =================================================
+           CASE-INSENSITIVE SEARCH
+           
+           This allows:
+           
+           ?id=Alshazly
+           ?id=ALSHAZLY
+           ?id=alshazly
+        ================================================= */
+
+        if (!profile) {
+
+            const key =
+                Object.keys(data).find(
+                    key =>
+                        key.toLowerCase() ===
+                        String(selectedId).toLowerCase()
+                );
+
+
+            if (key) {
+
+                profile =
+                    data[key];
+
+            }
+
+        }
+
+
+        /* =================================================
            PROFILE NOT FOUND
-        ============================================= */
+        ================================================= */
 
         if (!profile) {
 
@@ -210,9 +161,60 @@ async function loadProfile() {
         }
 
 
-        /* =============================================
+        /* =================================================
+           CHECK ACTIVE
+        ================================================= */
+
+        if (
+            profile.active === false
+        ) {
+
+            showProfileError(
+                "This profile is inactive"
+            );
+
+            return;
+
+        }
+
+
+        /* =================================================
+           ADD ID TO PROFILE
+           
+           Your JSON doesn't have an id field.
+           We add it dynamically.
+        ================================================= */
+
+        profile.id =
+            selectedId;
+
+
+        /* =================================================
            UPDATE PROFILE
-        ============================================= */
+        ================================================= */
+
+        updateProfile(
+            profile
+        );
+
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Profile loading error:",
+            error
+        );
+
+
+        showProfileError(
+            "Unable to load profile"
+        );
+
+    }
+
+}
 
         updateProfile(
             profile
