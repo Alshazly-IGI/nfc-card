@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 ========================================================= */
 
 const CONFIG = {
-    jsonFile: data/customers.json",
+    jsonFile: "data/customers.json",
 
     defaultProfile: {
         id: "alshazly",
