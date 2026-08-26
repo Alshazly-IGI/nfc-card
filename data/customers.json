@@ -1,0 +1,30 @@
+{
+  "alshazly": {
+    "name": "Alshazly Altieb Abouelhamd",
+    "job": "Healthcare Data Analyst",
+    "headline": "Database Specialist | Healthcare Data Analyst | Power BI",
+    "phone": "",
+    "whatsapp": "",
+    "email": "",
+    "linkedin": "",
+    "website": "",
+    "photo": "Best.jpg",
+    "company": "Shefaa Al Orman Hospital",
+    "bio": "",
+    "active": true
+  },
+  "ahmed": {
+    "name": "Ahmed Mohamed",
+    "job": "Business Analyst",
+    "headline": "Business Intelligence & Data Analysis",
+    "phone": "",
+    "whatsapp": "",
+    "email": "",
+    "linkedin": "",
+    "website": "",
+    "photo": "Best.jpg",
+    "company": "",
+    "bio": "",
+    "active": true
+  }
+}
