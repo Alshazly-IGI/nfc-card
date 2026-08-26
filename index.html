@@ -5,926 +5,663 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>
-        Alshazly Altieb | Healthcare Data Analyst
-    </title>
+    <!-- Dynamic title is set by JavaScript -->
+    <title>Loading...</title>
 
-    <!-- =================================
+    <meta
+        name="description"
+        content="Digital Business Card"
+    >
+
+    <meta
+        name="theme-color"
+        content="#ff7a00"
+    >
+
+    <!-- =====================================================
          FONT AWESOME
-    ================================== -->
+    ====================================================== -->
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 
-
-    <!-- =================================
+    <!-- =====================================================
          CSS
-    ================================== -->
+    ====================================================== -->
 
-    <link rel="stylesheet"
-          href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
 
-<body>
-
-<div class="theme-switcher">
-
-    <button type="button"
-            class="theme-btn active"
-            id="darkThemeBtn"
-            onclick="setTheme('dark')"
-            title="Dark Theme">
-
-        <i class="fa-solid fa-moon"></i>
-
-    </button>
+<body class="dark">
 
 
-    <button type="button"
-            class="theme-btn"
-            id="lightThemeBtn"
-            onclick="setTheme('light')"
-            title="Light Theme">
+<!-- =========================================================
+     MAIN CONTAINER
+========================================================= -->
 
-        <i class="fa-solid fa-sun"></i>
-
-    </button>
-
-</div>
-<div class="card">
+<main class="container">
 
 
-    <!-- =================================
-         PROFILE
-    ================================== -->
+    <!-- =====================================================
+         PROFILE CARD
+    ====================================================== -->
 
-    <div class="profile">
+    <section class="card">
 
-        <img src="s.jpg"
-             class="photo"
-             alt="Alshazly Altieb">
 
-        <h1>
-            Alshazly Altieb
-        </h1>
+        <!-- =================================================
+             PROFILE HEADER
+        ================================================== -->
 
-        <h3>
-            Healthcare Data Analyst
-        </h3>
+        <div class="profile-header">
 
-        <p class="headline">
-            SQL Server • Power BI • Python • Oncology Databases
+
+            <!-- Profile Image -->
+
+            <div class="profile-image-container">
+
+                <img
+                    id="profilePhoto"
+                    class="profile-photo"
+                    src="assets/profile.jpg"
+                    alt="Profile Photo"
+                >
+
+            </div>
+
+
+            <!-- Profile Information -->
+
+            <div class="profile-info">
+
+                <h1
+                    id="profileName"
+                    class="profile-name"
+                >
+                    Loading...
+                </h1>
+
+
+                <h2
+                    id="profileTitle"
+                    class="profile-title"
+                >
+                    Loading...
+                </h2>
+
+
+                <p
+                    id="profileBio"
+                    class="profile-bio"
+                >
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SOCIAL LINKS
+        ================================================== -->
+
+        <div class="social-links">
+
+
+            <!-- LinkedIn -->
+
+            <a
+                id="linkedinLink"
+                class="social-link linkedin-link"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+            >
+
+                <i class="fa-brands fa-linkedin-in"></i>
+
+            </a>
+
+
+            <!-- GitHub -->
+
+            <a
+                id="githubLink"
+                class="social-link github-link"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+            >
+
+                <i class="fa-brands fa-github"></i>
+
+            </a>
+
+
+            <!-- Facebook -->
+
+            <a
+                id="facebookLink"
+                class="social-link facebook-link"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+            >
+
+                <i class="fa-brands fa-facebook-f"></i>
+
+            </a>
+
+
+            <!-- Instagram -->
+
+            <a
+                id="instagramLink"
+                class="social-link instagram-link"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+            >
+
+                <i class="fa-brands fa-instagram"></i>
+
+            </a>
+
+
+            <!-- X / Twitter -->
+
+            <a
+                id="twitterLink"
+                class="social-link twitter-link"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+            >
+
+                <i class="fa-brands fa-x-twitter"></i>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CONTACT BUTTONS
+        ================================================== -->
+
+        <div class="contact-buttons">
+
+
+            <!-- Call -->
+
+            <a
+                class="action-button phone-link"
+                href="#"
+            >
+
+                <i class="fa-solid fa-phone"></i>
+
+                <span>Call</span>
+
+            </a>
+
+
+            <!-- WhatsApp -->
+
+            <a
+                class="action-button whatsapp-link"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                <span>WhatsApp</span>
+
+            </a>
+
+
+            <!-- Email -->
+
+            <a
+                class="action-button email-link"
+                href="#"
+            >
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <span>Email</span>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================================
+             MAIN ACTIONS
+        ================================================== -->
+
+        <div class="main-actions">
+
+
+            <!-- Save Contact -->
+
+            <button
+                type="button"
+                class="main-action save-contact"
+            >
+
+                <i class="fa-solid fa-address-card"></i>
+
+                <span>Save Contact</span>
+
+            </button>
+
+
+            <!-- Share -->
+
+            <button
+                type="button"
+                class="main-action share-card"
+            >
+
+                <i class="fa-solid fa-share-nodes"></i>
+
+                <span>Share</span>
+
+            </button>
+
+
+            <!-- QR -->
+
+            <button
+                type="button"
+                class="main-action qr-button"
+            >
+
+                <i class="fa-solid fa-qrcode"></i>
+
+                <span>QR Code</span>
+
+            </button>
+
+
+            <!-- CV -->
+
+            <a
+                id="cvLink"
+                class="main-action cv-link"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <i class="fa-solid fa-file-pdf"></i>
+
+                <span>CV</span>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================================
+             QR CODE
+        ================================================== -->
+
+        <div class="qr-section">
+
+
+            <p class="qr-label">
+                Scan to open my digital card
+            </p>
+
+
+            <img
+                class="qr-code"
+                src=""
+                alt="QR Code"
+                loading="lazy"
+            >
+
+        </div>
+
+
+
+        <!-- =================================================
+             THEME SWITCH
+        ================================================== -->
+
+        <div class="theme-switch">
+
+
+            <button
+                id="lightThemeBtn"
+                type="button"
+                aria-label="Light Mode"
+                title="Light Mode"
+            >
+
+                <i class="fa-solid fa-sun"></i>
+
+            </button>
+
+
+            <button
+                id="darkThemeBtn"
+                type="button"
+                aria-label="Dark Mode"
+                title="Dark Mode"
+            >
+
+                <i class="fa-solid fa-moon"></i>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="card-footer">
+
+            <p>
+                Digital Business Card
+            </p>
+
+            <p>
+                Powered by NFC Technology
+            </p>
+
+        </footer>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     QR MODAL
+========================================================= -->
+
+<div
+    id="qrModal"
+    class="qr-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-label="QR Code"
+>
+
+
+    <div class="qr-modal-content">
+
+
+        <!-- Close -->
+
+        <button
+            type="button"
+            class="qr-close"
+            aria-label="Close QR Code"
+        >
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <!-- Profile Name -->
+
+        <h2
+            id="qrModalName"
+            class="qr-modal-title"
+        >
+            QR Code
+        </h2>
+
+
+        <!-- Large QR -->
+
+        <img
+            class="qr-large"
+            src=""
+            alt="Large QR Code"
+        >
+
+
+        <!-- Instruction -->
+
+        <p class="qr-modal-text">
+
+            Scan this QR code to open
+            the digital business card.
+
         </p>
 
-    </div>
-
-
-
-    <!-- =================================
-         MAIN BUTTONS
-    ================================== -->
-
-    <div class="buttons">
-
-
-        <!-- Save Contact -->
-
-        <a href="contact.vcf"
-           class="btn primary-btn">
-
-            <i class="fa-solid fa-address-card"></i>
-
-            Save Contact
-
-        </a>
-
-
-        <!-- Download CV -->
-
-        <a href="Alshazly_Altieb_Data_Analysis.pdf"
-           class="btn secondary-btn"
-           download="Alshazly_Altieb_Data_Analysis.pdf">
-
-            <i class="fa-solid fa-file-pdf"></i>
-
-            Download CV
-
-        </a>
-
 
     </div>
-
-
-
-    <!-- =================================
-         SOCIAL MEDIA
-    ================================== -->
-
-    <div class="social">
-
-
-        <!-- LinkedIn -->
-
-        <a href="https://www.linkedin.com/in/alshazly-altieb-abouelhamd-06aa9b1a7"
-           target="_blank"
-           rel="noopener noreferrer"
-           title="LinkedIn">
-
-            <i class="fab fa-linkedin"></i>
-
-        </a>
-
-
-        <!-- GitHub -->
-
-        <a href="#"
-           title="GitHub">
-
-            <i class="fab fa-github"></i>
-
-        </a>
-
-
-        <!-- Facebook -->
-
-        <a href="#"
-           title="Facebook">
-
-            <i class="fab fa-facebook"></i>
-
-        </a>
-
-
-        <!-- Instagram -->
-
-        <a href="#"
-           title="Instagram">
-
-            <i class="fab fa-instagram"></i>
-
-        </a>
-
-
-        <!-- WhatsApp -->
-
-        <a href="https://wa.me/201005892249?text=Hello%20Alshazly%2C%20I%20would%20like%20to%20contact%20you."
-           target="_blank"
-           rel="noopener noreferrer"
-           title="WhatsApp">
-
-            <i class="fab fa-whatsapp"></i>
-
-        </a>
-
-
-        <!-- Email -->
-
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=asadego800@gmail.com&su=Contact%20from%20Digital%20Card"
-           target="_blank"
-           rel="noopener noreferrer"
-           title="Email">
-
-            <i class="fa-solid fa-envelope"></i>
-
-        </a>
-
-
-    </div>
-
-
-
-    <!-- =================================
-         ABOUT ME
-    ================================== -->
-
-    <section class="about-section">
-
-
-        <h2>
-
-            <i class="fa-solid fa-user"></i>
-
-            About Me
-
-        </h2>
-
-
-        <div class="about-content">
-
-
-            <p>
-
-                Healthcare Data Analyst with
-                <strong>8 years of experience</strong>
-                in medical records, healthcare databases,
-                data analysis and database management,
-                with a specialized focus on oncology data.
-
-            </p>
-
-
-            <p>
-
-                Proficient in
-                <strong>
-                    SQL Server, Power BI, Python,
-                    Microsoft Excel
-                </strong>
-
-                and healthcare analytics,
-                with strong experience in transforming
-                complex datasets into meaningful insights.
-
-            </p>
-
-
-            <p>
-
-                Strong ability to interpret and analyze
-                complex data to support
-                <strong>
-                    decision-making, improve processes
-                    and develop data-driven solutions
-                </strong>.
-
-            </p>
-
-
-            <p>
-
-                Experienced in
-                <strong>
-                    data visualization, reporting
-                    and dashboard development
-                </strong>,
-
-                with a focus on presenting
-                information clearly and effectively.
-
-            </p>
-
-
-
-            <!-- =================================
-                 AREAS OF INTEREST
-            ================================== -->
-
-            <div class="about-subtitle">
-
-                <i class="fa-solid fa-lightbulb"></i>
-
-                Areas of Interest
-
-            </div>
-
-
-            <div class="interest-list">
-
-
-                <span>
-
-                    <i class="fa-solid fa-magnifying-glass-chart"></i>
-
-                    Data Exploration
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-puzzle-piece"></i>
-
-                    Problem Solving
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-chart-simple"></i>
-
-                    Statistical Analysis
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-chart-line"></i>
-
-                    Data Visualization
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-code"></i>
-
-                    Programming
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-database"></i>
-
-                    Database Management
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-server"></i>
-
-                    Backend Development
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-table"></i>
-
-                    MS Access Projects
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-laptop-code"></i>
-
-                    Computer Applications
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-graduation-cap"></i>
-
-                    Continuous Learning
-
-                </span>
-
-
-            </div>
-
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- =================================
-         SKILLS
-    ================================== -->
-
-    <section class="skills-section">
-
-
-        <h2>
-
-            <i class="fa-solid fa-code"></i>
-
-            Skills
-
-        </h2>
-
-
-        <div class="skills">
-
-
-            <!-- SQL Server -->
-
-            <span>
-
-                <i class="fa-solid fa-database"></i>
-
-                SQL Server
-
-            </span>
-
-
-            <!-- Excel -->
-
-            <span>
-
-                <img src="excel.svg"
-                     class="skill-logo"
-                     alt="Microsoft Excel">
-
-                Microsoft Excel
-
-            </span>
-
-
-            <!-- Power BI -->
-
-            <span>
-
-                <i class="fa-solid fa-chart-column"></i>
-
-                Power BI
-
-            </span>
-
-
-            <!-- Python -->
-
-            <span>
-
-                <i class="fa-brands fa-python"></i>
-
-                Python
-
-            </span>
-
-
-            <!-- Healthcare Analytics -->
-
-            <span>
-
-                <i class="fa-solid fa-heart-pulse"></i>
-
-                Healthcare Analytics
-
-            </span>
-
-
-            <!-- ICD-O -->
-
-            <span>
-
-                <i class="fa-solid fa-stethoscope"></i>
-
-                ICD-O Coding
-
-            </span>
-
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- =================================
-         PROJECTS
-    ================================== -->
-
-    <section class="projects-section">
-
-
-        <h2>
-
-            <i class="fa-solid fa-chart-line"></i>
-
-            Projects
-
-        </h2>
-
-
-        <div class="project">
-
-            <i class="fa-solid fa-hospital"></i>
-
-            <span>
-                Cancer Registry Dashboard
-            </span>
-
-        </div>
-
-
-        <div class="project">
-
-            <i class="fa-solid fa-chart-pie"></i>
-
-            <span>
-                Hospital KPI Dashboard
-            </span>
-
-        </div>
-
-
-        <div class="project">
-
-            <i class="fa-solid fa-database"></i>
-
-            <span>
-                Data Analysis & Business Intelligence
-            </span>
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- =================================
-         BOTTOM PROFILE IMAGE
-    ================================== -->
-
-    <div class="footer-photo">
-
-        <img src="Best.jpg"
-             alt="Alshazly Altieb">
-
-    </div>
-
-
-
-   <!-- =========================
-     QR CODE
-========================= -->
-
-<div class="qr-section">
-
-    <p>Scan to view my digital card</p>
-
-    <img src="bing_generated_qrcode.png"
-         class="qr-code"
-         alt="QR Code"
-         onclick="openQR()">
-
-</div>
-
-
-<!-- =========================
-     QR MODAL
-========================= -->
-
-<div id="qrModal"
-     class="qr-modal"
-     onclick="closeQR()">
-
-    <button class="qr-close"
-            type="button"
-            onclick="event.stopPropagation(); closeQR();"
-            aria-label="Close QR Code">
-
-        <i class="fa-solid fa-xmark"></i>
-
-    </button>
-
-    <img src="bing_generated_qrcode.png"
-         class="qr-large"
-         alt="Large QR Code"
-         onclick="event.stopPropagation();">
 
 </div>
 
 
 
-    <!-- =================================
-         SHARE BUTTONS
-    ================================== -->
+<!-- =========================================================
+     TOAST MESSAGE
+========================================================= -->
 
-    <div class="share-buttons">
-
-
-        <!-- Share Card -->
-
-        <button type="button"
-                class="share-btn"
-                onclick="shareCard()">
-
-            <i class="fa-solid fa-share-nodes"></i>
-
-            Share Card
-
-        </button>
-
-
-        <!-- NFC -->
-
-        <button type="button"
-                class="nfc-btn"
-                onclick="shareNFC()">
-
-            <i class="fa-solid fa-wifi"></i>
-
-            Share via NFC
-
-        </button>
-
-
-    </div>
-
-
-
-    <!-- =================================
-         FOOTER
-    ================================== -->
-
-    <footer>
-
-        © 2026 Alshazly Altieb Abouelhamd
-
-        <span class="footer-separator">
-            |
-        </span>
-
-        <i class="fa-solid fa-database"></i>
-
-        Healthcare Data Analyst
-
-    </footer>
-
-
+<div
+    id="toastMessage"
+    class="toast-message"
+    role="status"
+    aria-live="polite"
+>
 </div>
 
 
 
-<!-- =================================
+<!-- =========================================================
      JAVASCRIPT
-================================= -->
+========================================================= -->
+
+<script src="script.js"></script>
+
+
+<!-- =========================================================
+     QR BUTTON
+========================================================= -->
 
 <script>
 
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-/* =================================
-   QR CODE
-================================= */
+        const qrButton =
+            document.querySelector(
+                ".qr-button"
+            );
 
-function openQR() {
+        const qrModal =
+            document.getElementById(
+                "qrModal"
+            );
 
-    const modal =
-        document.getElementById("qrModal");
+        const qrImage =
+            document.querySelector(
+                ".qr-code"
+            );
+
+        const qrLarge =
+            document.querySelector(
+                ".qr-large"
+            );
+
+        const qrClose =
+            document.querySelector(
+                ".qr-close"
+            );
+
+        const qrModalName =
+            document.getElementById(
+                "qrModalName"
+            );
 
 
-    if (!modal) {
+        /*
+         * Open QR modal
+         */
 
-        console.error(
-            "QR Modal not found!"
+        if (qrButton) {
+
+            qrButton.addEventListener(
+                "click",
+                () => {
+
+                    if (qrImage && qrLarge) {
+
+                        qrLarge.src =
+                            qrImage.src;
+
+                    }
+
+
+                    if (
+                        qrModalName &&
+                        window.currentProfile
+                    ) {
+
+                        qrModalName.textContent =
+                            window.currentProfile.name ||
+                            "QR Code";
+
+                    }
+
+
+                    if (qrModal) {
+
+                        qrModal.classList.add(
+                            "active"
+                        );
+
+                        document.body.style.overflow =
+                            "hidden";
+                    }
+
+                }
+            );
+
+        }
+
+
+        /*
+         * Close button
+         */
+
+        if (qrClose) {
+
+            qrClose.addEventListener(
+                "click",
+                () => {
+
+                    closeQRModal();
+
+                }
+            );
+
+        }
+
+
+        /*
+         * Close when clicking background
+         */
+
+        if (qrModal) {
+
+            qrModal.addEventListener(
+                "click",
+                event => {
+
+                    if (
+                        event.target === qrModal
+                    ) {
+
+                        closeQRModal();
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /*
+         * ESC key
+         */
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closeQRModal();
+
+                }
+
+            }
         );
 
-        return;
 
-    }
+        function closeQRModal() {
 
+            if (qrModal) {
 
-    modal.style.display = "flex";
+                qrModal.classList.remove(
+                    "active"
+                );
 
+                document.body.style.overflow =
+                    "";
 
-    document.body.style.overflow =
-        "hidden";
-
-}
-
-
-
-function closeQR() {
-
-    const modal =
-        document.getElementById("qrModal");
-
-
-    if (!modal) {
-
-        return;
-
-    }
-
-
-    modal.style.display =
-        "none";
-
-
-    document.body.style.overflow =
-        "";
-
-}
-
-
-
-/* =================================
-   CLOSE QR WITH ESC
-================================= */
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key === "Escape") {
-
-            closeQR();
+            }
 
         }
 
     }
 );
 
-
-
-/* =================================
-   SHARE CARD
-================================= */
-
-async function shareCard() {
-
-
-    const cardURL =
-        "https://alshazly-igi.github.io/nfc-card/";
-
-
-    /* Mobile Share */
-
-    if (navigator.share) {
-
-
-        try {
-
-
-            await navigator.share({
-
-                title:
-                    "Alshazly Altieb | Healthcare Data Analyst",
-
-                text:
-                    "View my digital business card",
-
-                url:
-                    cardURL
-
-            });
-
-
-        }
-
-
-        catch (error) {
-
-
-            console.log(
-                "Share cancelled."
-            );
-
-
-        }
-
-
-        return;
-
-    }
-
-
-
-    /* Desktop / Fallback */
-
-    try {
-
-
-        await navigator.clipboard.writeText(
-            cardURL
-        );
-
-
-        alert(
-            "Card link copied to clipboard!"
-        );
-
-
-    }
-
-
-    catch (error) {
-
-
-        alert(
-            "Card link:\n" +
-            cardURL
-        );
-
-
-    }
-
-}
-
-
-
-/* =================================
-   NFC
-================================= */
-
-async function shareNFC() {
-
-
-    /*
-        Web NFC works mainly on
-        supported Android browsers.
-    */
-
-
-    if (!("NDEFReader" in window)) {
-
-
-        alert(
-
-            "Web NFC is not supported " +
-            "on this device/browser.\n\n" +
-
-            "Please use Share Card or " +
-            "scan the QR Code."
-
-        );
-
-
-        return;
-
-    }
-
-
-
-    try {
-
-
-        const ndef =
-            new NDEFReader();
-
-
-        await ndef.write({
-
-            records: [
-
-                {
-
-                    recordType: "url",
-
-                    data:
-                        "https://alshazly-igi.github.io/nfc-card/"
-
-                }
-
-            ]
-
-        });
-
-
-        alert(
-            "NFC tag written successfully!"
-        );
-
-
-    }
-
-
-    catch (error) {
-
-
-        console.error(
-            "NFC Error:",
-            error
-        );
-
-
-        alert(
-
-            "NFC Error:\n\n" +
-            error.message
-
-        );
-
-    }
-
-}
-
-
 </script>
-<script src="script.js"></script>
-<script>
 
-function openQR() {
-    document.getElementById("qrModal").style.display = "flex";
-}
-
-function closeQR() {
-    document.getElementById("qrModal").style.display = "none";
-}
-
-</script>
-    <script>
-
-
-
-    <script src="multi-client.js"></script>
-
-    <div id="customerNotFound" hidden
-         style="display:none; padding:2rem; text-align:center;">
-        Profile not found or inactive.
-    </div>
 
 </body>
 
