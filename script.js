@@ -604,36 +604,7 @@ function updateQRCode(profile) {
 
 
 /* =========================================================
-   QR MODAL
-========================================================= */
-
-function initQRModal() {
-
-    const modal =
-        document.getElementById(
-            "qrModal"
-        );
-
-    if (!modal) return;
-
-
-    const qrImage =
-        document.querySelector(
-            ".qr-code"
-        );
-
-    const largeQR =
-        document.querySelector(
-            ".qr-large"
-        );
-
-    const closeButton =
-        document.querySelector(
-            ".qr-close"
-        );
-
-
-    /* -----------------------------------------------------
+ 
        OPEN QR
     ----------------------------------------------------- */
 
